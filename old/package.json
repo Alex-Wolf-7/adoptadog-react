@@ -1,0 +1,19 @@
+{
+  "name": "adoptadog-cse134b",
+  "version": "1.0.0",
+  "description": "Dog rescue website built for CSE134B by Ryan Willet, Alex Wolf, and Sherry Wang",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://git.ucsd.edu/rwillett/adoptadog-cse134b.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0"
+  }
+}

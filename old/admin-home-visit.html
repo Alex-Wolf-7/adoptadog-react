@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Schedule Home Visit</title>
+
+    <link rel="stylesheet" href="css/templatestyle.css">
+    <link rel="stylesheet" href="css/home-visit.css">
+
+    <script type="text/javascript" src="./js/login-check.js"></script>
+    <script type="text/javascript" src="./js/logout.js"></script>
+    <script type="text/javascript" src="./js/admin-home-visit.js"></script>
+    <script type="text/javascript" src="./js/template.js"></script>
+
+
+</head>
+<body onpageshow="adminOnly()" onload="ready()">
+    <div class="header-wrapper">
+        <img src="images/logo.jpg" id="logo">
+        <div class="nav-bar">
+          <a class="header-link hide-link" href="./kennel.html">
+            <button class="header-button" type="button">Kennel</button>
+          </a>
+          <a class="header-link hide-link" href="./admin-contact.html">
+            <button class="header-button" type="button">Contact Adopter</button>
+          </a>
+          <a class="header-link hide-link" href="./view-application.html">
+            <button class="header-button" type="button">View Application</button>
+          </a>
+          <a class="header-link hide-link" href="./checklist-admin.html">
+            <button class="header-button" type="button">Adopter Checklist</button>
+          </a>
+          <button class="header-button" type="button" onclick="logout()">Logout</button>
+            <div class="dropdown-holder" onclick="controlMenu()">
+                <div class="dropdown-menu"></div>
+                <div class="dropdown-menu"></div>
+                <div class="dropdown-menu"></div>
+            </div>
+            <ul id="dropDown" style="display: none">
+                <a class="dropdown-link hide-link" href="kennel.html">
+                  <li class="dropdown-button">Kennel</li>
+                </a>
+                <a class="dropdown-link hide-link" href="admin-contact.html">
+                  <li class="dropdown-button">Contact Adopter</li>
+                </a>
+                <a class="dropdown-link hide-link" href="view-application.html">
+                  <li class="dropdown-button">View Application</li>
+                </a>
+                <a class="dropdown-link hide-link" href="checklist-admin.html">
+                  <li class="dropdown-button">Adopter Checklist</li>
+                </a>
+                <li class="dropdown-link hide-link" onclick="logout()" class="dropdown-button">Logout</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- DO NOT TOUCH THE HTML ABOVE THIS. IT CREATES THE HEADER AND THE COLOR -->
+    <div class="home-visit-wrapper">
+        <h2 class="home-visit-header">Planned Home Visit</h2>
+
+        <p class="home-visit-text">Date Selected for the visit:</p>
+        <h3 class="home-visit-date" id="home-visit-datepicker">10/2/1020</h3>
+        <p class="home-visit-text">Time selected for the visit:</p>
+        <h3 class="home-visit-text" id="home-visit-time">9:00am</h3>
+
+         <p class="home-visit-text">Additional Comments:</p>
+        <h5 class="home-visit-comments" id="home-visit-comments"></h5>
+    </div>
+  </body>
+</html>

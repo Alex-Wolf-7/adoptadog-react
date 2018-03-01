@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Home</title>
+
+    <link rel="stylesheet" href="css/templatestyle.css">
+    <link rel="stylesheet" href="css/home.css">
+
+    <script type="text/javascript" src="./js/login-check.js"></script>
+    <script type="text/javascript" src="./js/logout.js"></script>
+    <script type="text/javascript" src="./js/home.js"></script>
+    <script type="text/javascript" src="./js/template.js"></script>
+
+</head>
+<body onpageshow="userOnly()">
+    <div class="header-wrapper">
+        <img src="images/logo.jpg" id="logo">
+        <div class="nav-bar">
+          <a class="header-link hide-link" href="./home.html">
+            <button class="header-button" type="button">Home</button>
+          </a>
+          <a class="header-link hide-link" href="./about-us.html">
+            <button class="header-button" type="button">About</button>
+          </a>
+          <a class="header-link hide-link" href="./kennel.html">
+            <button class="header-button" type="button">Kennel</button>
+          </a>
+          <a class="header-link hide-link" href="./checklist.html">
+            <button class="header-button" type="button">Checklist</button>
+          </a>
+          <button class="header-button" type="button" onclick="logout()">Logout</button>
+            <div class="dropdown-holder" onclick="controlMenu()">
+                <div class="dropdown-menu"></div>
+                <div class="dropdown-menu"></div>
+                <div class="dropdown-menu"></div>
+            </div>
+            <ul id="dropDown" style="display: none">
+                <a class="dropdown-link hide-link" href="home.html">
+                  <li class="dropdown-button">Home</li>
+                </a>
+                <a class="dropdown-link hide-link" href="about-us.html">
+                  <li class="dropdown-button">About</li>
+                </a>
+                <a class="dropdown-link hide-link" href="kennel.html">
+                  <li class="dropdown-button">Kennel</li>
+                </a>
+                <a class="dropdown-link hide-link" href="checklist.html">
+                  <li class="dropdown-button">Checklist</li>
+                </a>
+                <li class="dropdown-link hide-link" onclick="logout()" class="dropdown-button">Logout</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="row bordered grey taller">
+        <span class="spacer1"></span>
+        <span>Next to do:</span>
+        <span class="spacer1"></span>
+        <span id="todo-tasks" onchange="updateSteps();">Step #1 - Fill Out The Adoption Form</span>
+        <span class="spacer3"></span>
+        <button type="button" id="next-task-button">Do it</button>
+        <span class="spacer1"></span>
+    </div>
+
+    <div class="row bordered grey left">
+        <div class="row no-spacing">
+            <span class="spacer1"></span>
+            <h4>Recent Rescues: </h4>
+            <span class="spacer3"></span>
+            <span class="spacer1"></span>
+        </div>
+        <div class="row no-spacing">
+            <div class="row no-width no-spacing flex-down">
+                <img src="images/sampleDog1.jpg">
+                <p>This is some test text</p>
+            </div>
+            <div class="row no-width no-spacing flex-down">
+                <img src="images/sampleDog1.jpg">
+                <p>This is some test text</p>
+            </div>
+        </div>
+    </div>
+  </body>
+</html>

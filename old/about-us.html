@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>About Us</title>
+
+    <link rel="stylesheet" href="css/templatestyle.css">
+    <link rel="stylesheet" href="css/about-us.css">
+
+    <script type="text/javascript" src="./js/login-check.js"></script>
+    <script type="text/javascript" src="./js/logout.js"></script>
+    <script type="text/javascript" src="./js/template.js"></script>
+
+</head>
+<body onpageshow="adminOrUser(); autoHeader()">
+    <div class="header-wrapper">
+        <img src="images/logo.jpg" id="logo">
+        <div class="nav-bar">
+          <a class="header-link hide-link" href="./home.html">
+            <button class="header-button" type="button">Home</button>
+          </a>
+          <a class="header-link hide-link" href="./about-us.html">
+            <button class="header-button" type="button">About</button>
+          </a>
+          <a class="header-link hide-link" href="./kennel.html">
+            <button class="header-button" type="button">Kennel</button>
+          </a>
+          <a class="header-link hide-link" href="./checklist.html">
+            <button class="header-button" type="button">Checklist</button>
+          </a>
+          <button class="header-button" type="button" onclick="logout()">Logout</button>
+            <div class="dropdown-holder" onclick="controlMenu()">
+                <div class="dropdown-menu"></div>
+                <div class="dropdown-menu"></div>
+                <div class="dropdown-menu"></div>
+            </div>
+            <ul id="dropDown" style="display: none">
+                <a class="dropdown-link hide-link" href="home.html">
+                  <li class="dropdown-button">Home</li>
+                </a>
+                <a class="dropdown-link hide-link" href="about-us.html">
+                  <li class="dropdown-button">About</li>
+                </a>
+                <a class="dropdown-link hide-link" href="kennel.html">
+                  <li class="dropdown-button">Kennel</li>
+                </a>
+                <a class="dropdown-link hide-link" href="checklist.html">
+                  <li class="dropdown-button">Checklist</li>
+                </a>
+                <li class="dropdown-link hide-link dropdown-button" onclick="logout()">Logout</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- DO NOT TOUCH THE HTML ABOVE THIS. IT CREATES THE HEADER AND THE COLOR -->
+    <div class="about-us-wrapper">
+        <h2 class="about-us-header">About Us:</h2>
+        <img src="images/ucsd-rescue-shelter.jpg" alt="Us at UCSD Rescue Shelter" class="about-us-picture">
+
+        <p class="about-us-info">
+            We are all about dogs at <b>UCSD Rescue Shelter</b>, and about finding great homes for those
+            dogs. Our team has worked with animals for many years, and helped hundreds of dogs to find
+            safe, loving homes where they can live long, happy lives. Helping dogs is not just a job to us,
+            or even a hobby: it's a passion that every one of us at <b>UCSD Rescue Shelter</b> shares. We
+            hope that we can be of help when it comes time for you to adopt a new family member!
+        </p>
+    </div>
+  </body>
+</html>

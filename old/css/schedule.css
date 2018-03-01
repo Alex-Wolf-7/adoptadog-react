@@ -1,0 +1,72 @@
+  .form-wrapper {
+    position: absolute;
+    top:10%;
+    left:10%;
+    right:10%;
+    width:80%;
+    height:85%;
+    padding-left: 5%;
+    background: #9da39a;
+  }
+
+  .bordered {
+    border-radius: 1px;
+    border-style: solid;
+  }
+
+  h2 h3 {
+    top: 20%;
+    width: 100%;
+    text-align: center;
+    font-size: calc(7px + .8vw);
+  }
+
+  p {
+    font-style: italic;
+    line-height: 1.3;
+    top: 10%;
+    width: 90%;
+    font-size: calc(7px + .8vw);
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  .calendar {
+    display: flex;
+    margin-top: 1%;
+    margin-bottom: 3%;
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: left;
+    width: 90%;
+  }
+
+  #selector {
+    max-width: 80%;
+  }
+
+
+  textarea {
+    width: 100%;
+    height: 100%;
+    font-style: italic;
+    resize: both;
+    overflow: scroll;
+  }
+
+  .comment {
+    position: absolute;
+    width: 85%;
+    height:20%;
+  }
+@media screen and (min-width: 480px) {
+  textarea {
+    width: 70%;
+    margin-left: 15%;
+  }
+
+}

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Login</title>
+
+    <link rel="stylesheet" href="css/login.css">
+    <script type="text/javascript" src="./js/login.js"></script>
+
+</head>
+<body>
+
+    <div class="form-wrapper bordered">
+        <div class="row">
+            <img src="images/logo.jpg" class="bordered">
+
+            <div class="signin-header">
+                <h2>Adopt A Dog Sign-In Portal</h2>
+            </div>
+            <span class="spacer1"></span>
+        </div>
+        <div class="row lessMargin">
+            <div class="email-header">
+                <h2>Email:&nbsp;&nbsp;&nbsp;&nbsp;</h2>
+
+            </div>
+
+            <input type="text" id="email-input">
+        </div>
+        <div class="row lessMargin">
+            <div class="password-header">
+                <h2>Password:</h2>
+            </div>
+
+            <input type="text" id="password-input">
+        </div>
+
+        <div class="row lessMargin">
+            <form class="radio-section" action="">
+                <div>
+                    <input type="radio" id="adopter-radio" name="login-radio" value="adopter">
+                    <span>Adopter</span>
+                </div>
+
+                <div>
+                    <input type="radio" id="admin-radio" name="login-radio" value="admin">
+                    <span> Admin </span>
+                </div>
+            </form>
+
+            <button onclick="loginFunction()" type="button" id="login-button">Login</button>
+        </div>
+    </div>
+  </body>
+</html>
