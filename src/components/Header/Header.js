@@ -1,6 +1,7 @@
 import React from 'react';
 import "./Header.css";
 import logo from "./logo.jpg";
+import "./noMargins.css";
 
 const Header = () => {
   const clearance = localStorage.getItem("clearance");

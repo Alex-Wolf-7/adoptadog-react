@@ -8,6 +8,7 @@
     "react-router-dom": "^4.2.2"
   },
   "devDependencies": {
+    "css-loader": "^0.28.10",
     "react-scripts": "1.1.1"
   },
   "scripts": {
