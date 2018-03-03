@@ -12,7 +12,6 @@ const Header = () => {
 
   function logout() {
     localStorage.setItem("clearance", "");
-    this.props.history.push('/');
   }
 
   function controlMenu() {
@@ -37,29 +36,33 @@ const Header = () => {
           <a className="header-link hide-link" href="/kennel">
             <button className="header-button" type="button">Kennel</button>
           </a>
-          <a className="header-link hide-link" href="./userChecklist">
+          <a className="header-link hide-link" href="/userChecklist">
             <button className="header-button" type="button">Adopter Checklist</button>
           </a>
-          <button className="header-button" type="button" onClick={logout}>Logout</button>
-          <div className="dropdown-holder" onClick={controlMenu}>
+          <a className="dropdown-link hide-link" href="/">
+            <button className="dropdown-button" onClick={logout}>Logout</button>
+          </a>
+            <div className="dropdown-holder" onClick={controlMenu}>
             <div className="dropdown-menu"></div>
             <div className="dropdown-menu"></div>
             <div className="dropdown-menu"></div>
           </div>
           <ul id="dropDown" style={dropDownStyle}>
-            <a className="dropdown-link hide-link" href="kennel.html">
-              <li className="dropdown-button">Kennel</li>
+            <a className="header-link hide-link" href="/home">
+              <li className="header-button" type="button">Home</li>
             </a>
-            <a className="dropdown-link hide-link" href="admin-contact.html">
-              <li className="dropdown-button">Contact Adopter</li>
+            <a className="header-link hide-link" href="/about">
+              <li className="header-button" type="button">About Us</li>
             </a>
-            <a className="dropdown-link hide-link" href="view-application.html">
-              <li className="dropdown-button">View Application</li>
+            <a className="header-link hide-link" href="/kennel">
+              <li className="header-button" type="button">Kennel</li>
             </a>
-            <a className="dropdown-link hide-link" href="checklist-admin.html">
-              <li className="dropdown-button">Adopter Checklist</li>
+            <a className="header-link hide-link" href="/userChecklist">
+              <li className="header-button" type="button">Adopter Checklist</li>
             </a>
-            <li className="dropdown-link hide-link dropdown-button" onClick={logout}>Logout</li>
+            <a className="dropdown-link hide-link" href="/">
+              <li className="dropdown-button" onClick={logout}>Logout</li>
+            </a>
           </ul>
         </div>
       </div>
