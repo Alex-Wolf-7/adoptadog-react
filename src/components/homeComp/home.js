@@ -1,7 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './home.css';
 import { withRouter } from 'react-router-dom';
 import ClientHeader from '../ClientHeader/ClientHeader.js';
+import dog from "./sampleDog1.jpg";
+
 
 class homeComp extends React.Component {
 
@@ -9,17 +11,17 @@ class homeComp extends React.Component {
     return (
       <div>
       <ClientHeader></ClientHeader>
-      <div className="row bordered grey taller">
+      <div className="row bordered grey taller halfHeight">
         <span className="spacer1 homeSpan"></span>
         <span className="homeSpan">Next to do:</span>
         <span className="spacer1 homeSpan"></span>
-        <span className="homeSpan" id="todo-tasks" onChange="updateSteps">Step #1 - Fill Out The Adoption Form</span>
+        <span className="homeSpan" id="todo-tasks" onChange={this.updateSteps}>Step #1 - Fill Out The Adoption Form</span>
         <span className="spacer3 homeSpan"></span>
         <button type="button" id="next-task-button">Do it</button>
         <span className="spacer1 homeSpan"></span>
     </div>
 
-    <div className="row bordered grey left">
+    <div className="row bordered grey left halfHeight">
         <div className="row noSpacing">
             <span className="spacer1 homeSpan"></span>
             <h4 className="homeH4">Recent Rescues: </h4>
@@ -28,11 +30,11 @@ class homeComp extends React.Component {
         </div>
         <div className="row noSpacing">
             <div className="row noWidth noSpacing flexDown">
-                <img src="images/sampleDog1.jpg" alt=""/>
+                <img src={dog} className="img" alt=""/>
                 <p>This is some test text</p>
             </div>
             <div className="row noWidth noSpacing flexDown">
-                <img src="./sampleDog1.jpg" alt=""/>
+                <img src={dog} className="img" alt=""/>
                 <p>This is some test text</p>
             </div>
         </div>
@@ -41,13 +43,14 @@ class homeComp extends React.Component {
 
 
     );
+  }
 
-    function componentDidMount() {
-      updateSteps ();
-      document.getElementById("next-task-button").addEventListener("click", updateNextPage);
+    componentDidMount() {
+      this.updateSteps();
+      document.getElementById("next-task-button").addEventListener("click", this.updateNextPage);
     }
 
-    function updateSteps () {
+    updateSteps () {
       var appStatus = localStorage.getItem("applicationStatus");
       var discussStatus = localStorage.getItem("discussionStatus");
       var homeCheckStatus = localStorage.getItem("homeCheckStatus");
@@ -71,7 +74,8 @@ class homeComp extends React.Component {
       }
     }
 
-    function updateNextPage () {
+    updateNextPage () {
+      
       var appStatus = localStorage.getItem("applicationStatus");
       var discussStatus = localStorage.getItem("discussionStatus");
       var homeCheckStatus = localStorage.getItem("homeCheckStatus");
@@ -95,6 +99,4 @@ class homeComp extends React.Component {
     }
 
   }
-
-}
-export default withRouter(homeComp);
+  export default withRouter(homeComp);
