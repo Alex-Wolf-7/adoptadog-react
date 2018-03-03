@@ -1,3 +1,22 @@
+* {
+  margin: 7px;
+}
+html {
+    min-height: 100%;
+    width: 100%;
+    position: relative;
+    margin: 0;
+}
+
+body {
+    position: absolute;
+    min-height:100%;
+    width:90%;
+    overflow-y: auto;
+    margin: 0;
+    background: #70877f;
+}
+
 .formWrapper {
   position: absolute;
   top:10%;
@@ -52,7 +71,7 @@
 
 #email-input {
   max-width: 100%;
-}
+} 
 
 .spacer2 {
   flex-grow: 2;
