@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './login.css';
 import logo from '../Header/logo.jpg' // relative path to image
 import { withRouter } from 'react-router-dom'
