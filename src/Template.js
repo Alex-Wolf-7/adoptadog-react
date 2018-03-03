@@ -4,6 +4,7 @@ import './Template.css';
 //Import components as well
 import loginComp from './components/login';
 import homeComp from './components/homeComp';
+import kennelComp from './components/kennel';
 
 class Template extends Component {
   render() {
@@ -12,6 +13,7 @@ class Template extends Component {
         <Switch>
           <Route exact path='/' component={loginComp} />
           <Route exact path='/home' component={homeComp}/>
+          <Route exact path='/kennel' component={kennelComp}/>
         </Switch>
       </div>
     );
