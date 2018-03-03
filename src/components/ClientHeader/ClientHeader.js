@@ -1,7 +1,7 @@
 import React from 'react';
-import "./Header.css";
+import "./ClientHeader.css";
 import logo from "./logo.jpg";
-import "./noMargins.css";
+import "../Header/noMargins.css";
 
 const Header = () => {
   const clearance = localStorage.getItem("clearance");
@@ -11,19 +11,19 @@ const Header = () => {
       <div class="header-wrapper">
         <img src={logo} id="logo" alt="logo" />
         <div class="nav-bar">
-          <a class="header-link hide-link" href="./kennel.html">
+          <a class="header-link hide-link" href="/home">
+            <button class="header-button" type="button">Home</button>
+          </a>
+          <a class="header-link hide-link" href="./about">
+            <button class="header-button" type="button">About Us</button>
+          </a>
+          <a class="header-link hide-link" href="/kennel">
             <button class="header-button" type="button">Kennel</button>
           </a>
-          <a class="header-link hide-link" href="./admin-contact.html">
-            <button class="header-button" type="button">Contact Adopter</button>
-          </a>
-          <a class="header-link hide-link" href="./view-application.html">
-            <button class="header-button" type="button">View Application</button>
-          </a>
-          <a class="header-link hide-link" href="./checklist-admin.html">
+          <a class="header-link hide-link" href="./userChecklist">
             <button class="header-button" type="button">Adopter Checklist</button>
           </a>
-          <button class="header-button" type="button" onclick="logout()">Logout</button>
+          <button class="header-button" type="button" onClick="logout">Logout</button>
           <div class="dropdown-holder" onclick="controlMenu()">
             <div class="dropdown-menu"></div>
             <div class="dropdown-menu"></div>
@@ -47,6 +47,11 @@ const Header = () => {
         </div>
       </div>
     );
+    function logout () {
+      localStorage.setItem("clearance", "");
+      window.location.href = "./login.html";
+    }
+
 
 }
 

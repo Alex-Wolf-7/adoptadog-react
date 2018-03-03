@@ -1,0 +1,57 @@
+.grey {
+  background: #9da39a;
+}
+
+.center {
+  width: 80%;
+  margin-left: 10%;
+}
+
+.bordered {
+  border-radius: 1px;
+  border-style: solid;
+}
+
+.taller {
+  height: 80px
+}
+
+.homeSpan {
+  font-size: calc(7px + 1.2vw);
+}
+
+.spacer2 {
+  flex-grow: 2;
+}
+
+.spacer1 {
+  flex-grow: 1;
+}
+
+.spacer3 {
+  flex-grow: 3;
+}
+
+.homeButton {
+  flex-grow: 2;
+}
+
+.homeH4 {
+  align-self: flex-start;
+}
+
+.left {
+  justify-content: flex-start;
+}
+
+.noSpacing {
+  margin-top: 0;
+}
+
+.flexDown {
+  flex-direction: column;
+}
+
+.noWidth {
+  width: auto;
+}
