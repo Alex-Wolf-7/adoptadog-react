@@ -7,6 +7,17 @@ import dog from "./sampleDog1.jpg";
 
 class homeComp extends React.Component {
 
+  constructor(props) {
+      super(props);
+      this.updateNextPage = this.updateNextPage.bind(this);
+      this.state = {
+        appStatus: localStorage.getItem("applicationStatus"),
+        discussStatus: localStorage.getItem("discussionStatus"),
+        homeCheckStatus: localStorage.getItem("homeCheckStatus"),
+        finalStatus: localStorage.getItem("finalStatus"),
+      }
+    }
+
   render() {
     return (
       <div>
@@ -44,6 +55,23 @@ class homeComp extends React.Component {
 
     );
   }
+    componentWillMount() {
+      if(this.state.appStatus === null) {
+        this.setState({appStatus: "notReady"})
+      }
+
+      if(this.state.discussStatus === null) {
+        this.setState({discussStatus: "notReady"})
+      }
+
+      if(this.state.homeCheckStatus === null) {
+        this.setState({homeCheckStatus: "notReady"})
+      }
+
+      if(this.state.finalStatus === null) {
+        this.setState({finalStatus: "notReady"})
+      }
+    }
 
     componentDidMount() {
       this.updateSteps();
@@ -51,50 +79,40 @@ class homeComp extends React.Component {
     }
 
     updateSteps () {
-      var appStatus = localStorage.getItem("applicationStatus");
-      var discussStatus = localStorage.getItem("discussionStatus");
-      var homeCheckStatus = localStorage.getItem("homeCheckStatus");
-      var finalStatus = localStorage.getItem("finalStatus");
-      var todoTask = document.getElementById("todo-tasks");
+      const todoTask = document.getElementById("todo-tasks");
 
-      if (appStatus === "notReady" || appStatus === "Submitted") {
+      if (this.state.appStatus === "notReady" || this.state.appStatus === "Submitted") {
         todoTask.innerHTML = "Step #1 - Fill Out The Adoption Form";
       }
-      else if (appStatus === "Completed" && (discussStatus === "notReady" || discussStatus === "Submitted")) {
+      else if (this.state.appStatus === "Completed" && (this.state.discussStatus === "notReady" || this.state.discussStatus === "Submitted")) {
         todoTask.innerHTML = "Step #2 - Contact Dog Animal Rescue Adoption Coordinator";
       }
-      else if (discussStatus === "Completed" && (homeCheckStatus === "notReady" || homeCheckStatus === "Submitted")) {
+      else if (this.state.discussStatus === "Completed" && (this.state.homeCheckStatus === "notReady" || this.state.homeCheckStatus === "Submitted")) {
         todoTask.innerHTML = "Step #3 - Schedule Your Home Check";
       }
-      else if (homeCheckStatus === "Completed") {
+      else if (this.state.homeCheckStatus === "Completed") {
         todoTask.innerHTML = "Go Get Your New Dog Friend!";
       }
-      else if (finalStatus === "Completed") {
+      else if (this.state.finalStatus === "Completed") {
         todoTask.innerHTML = "Go Get Your New Dog Friend!";
       }
     }
 
     updateNextPage () {
-      
-      var appStatus = localStorage.getItem("applicationStatus");
-      var discussStatus = localStorage.getItem("discussionStatus");
-      var homeCheckStatus = localStorage.getItem("homeCheckStatus");
-      var finalStatus = localStorage.getItem("finalStatus");
-
-      if (appStatus === "notReady" || appStatus === "Submitted") {
-        window.location = 'application-form.html';
+      if (this.state.appStatus === "notReady" || this.state.appStatus === "Submitted") {
+        this.props.history.push('/application-form');
       }
-      else if (appStatus === "Completed" && (discussStatus === "notReady" || discussStatus === "Submitted")) {
-        window.location = 'contact-page.html';
+      else if (this.state.appStatus === "Completed" && (this.state.discussStatus === "notReady" || this.state.discussStatus === "Submitted")) {
+        this.props.history.push('/contact');
       }
-      else if (discussStatus === "Completed" && (homeCheckStatus === "notReady" || homeCheckStatus === "Submitted")) {
-        window.location = 'home-visit.html';
+      else if (this.state.discussStatus === "Completed" && (this.state.homeCheckStatus === "notReady" || this.state.homeCheckStatus === "Submitted")) {
+        this.props.history.push('/home-visit');
       }
-      else if (homeCheckStatus === "Completed") {
-        window.location = 'all-done.html';
+      else if (this.state.homeCheckStatus === "Completed") {
+        this.props.history.push('/all-done');
       }
-      else if (finalStatus === "Completed") {
-        window.location = 'all-done.html';
+      else if (this.state.finalStatus === "Completed") {
+        this.props.history.push('/all-done');
       }
     }
 
