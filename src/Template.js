@@ -9,6 +9,7 @@ import aboutComp from './components/about';
 import checklistComp from './components/checklist'
 import allDoneComp from './components/allDone'
 import applicationComp from './components/applicationComp';
+import adminHomeVisitComp from './components/adminHomeVisit';
 
 class Template extends Component {
   render() {
@@ -22,6 +23,7 @@ class Template extends Component {
           <Route exact path='/checklist' component={checklistComp}/>
           <Route exact path='/all-done' component={allDoneComp}/>
           <Route exact path='/application' component={applicationComp}/>
+          <Route exact path='/admin-home-visit' component={adminHomeVisitComp}/>
         </Switch>
       </div>
     );
