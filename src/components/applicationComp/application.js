@@ -13,87 +13,87 @@ class applicationComp extends Component {
     return (
       <div>
       <ClientHeader></ClientHeader>
-      <div className="form-wrapper bordered">
-          <div className="header">
+      <div className="form-app-wrapper app-bordered">
+          <div className="app-header">
               <h2 id="heading">Dog Application Form</h2>
           </div>
 
-          <div className="row">
-              <div className="spacer2">
-                <h2>Name:</h2>
-                <input type="text" id="name"/>
+          <div className="app-row">
+              <div className="app-spacer2">
+                <h2 id="app-heading">Name:</h2>
+                <input type="app-text" id="name"/>
               </div>
 
-              <div className="spacer2">
-                  <h2>Email:</h2>
-                  <input type="text" id="email"/>
-              </div>
-          </div>
-
-          <div className="row">
-              <div className="spacer2">
-                  <h2>Address:</h2>
-                  <input type="text" id="address"/>
+              <div className="app-spacer2">
+                  <h2 id="app-heading">Email:</h2>
+                  <input type="app-text" id="email"/>
               </div>
           </div>
 
-          <div className="row">
-              <div className="spacer2">
-                  <h2>Housing Type:</h2>
-                  <input type="text" id="housing"/>
-              </div>
-
-              <div className="spacer2">
-                  <h2>Phone #:</h2>
-                  <input type="text" id="phone"/>
+          <div className="app-row">
+              <div className="app-spacer2">
+                  <h2 id="app-heading">Address:</h2>
+                  <input type="app-text" id="address"/>
               </div>
           </div>
 
-          <div className="row">
-              <div className="spacer2">
-                  <h2>Veterinarian Information:</h2>
+          <div className="app-row">
+              <div className="app-spacer2">
+                  <h2 id="app-heading">Housing Type:</h2>
+                  <input type="app-text" id="housing"/>
+              </div>
+
+              <div className="app-spacer2">
+                  <h2 id="app-heading">Phone #:</h2>
+                  <input type="app-text" id="phone"/>
               </div>
           </div>
 
-          <div className="row">
-              <div className="spacer2">
-                <h2>Name:</h2>
-                <input type="text" id="vetName"/>
-              </div>
-
-              <div className="spacer2">
-                  <h2>Email:</h2>
-                  <input type="text" id="vetEmail"/>
+          <div className="app-row">
+              <div className="app-spacer2">
+                  <h2 id="app-heading">Veterinarian Information:</h2>
               </div>
           </div>
 
-          <div className="row">
-              <div className="spacer2">
-                  <h2>Phone #:</h2>
-                  <input type="text" id="vetPhone"/>
+          <div className="app-row">
+              <div className="app-spacer2">
+                <h2 id="app-heading">Name:</h2>
+                <input type="app-text" id="vetName"/>
+              </div>
+
+              <div className="app-spacer2">
+                  <h2 id="app-heading">Email:</h2>
+                  <input type="app-text" id="vetEmail"/>
               </div>
           </div>
 
-          <div className="row">
-              <div className="spacer2">
-                <h2>Dog You Want to Adopt (Name): </h2>
-                <input type="text" id="dogName"/>
-              </div>
-
-              <div className="spacer2">
-                <h2>Names and ages of all current pets: </h2>
-                <input type="text" id="currPets"/>
+          <div className="app-row">
+              <div className="app-spacer2">
+                  <h2 id="app-heading">Phone #:</h2>
+                  <input type="app-text" id="vetPhone"/>
               </div>
           </div>
 
-          <div className="row">
-              <div className="spacer2">
-                <h2>Your Daily Scehdule:</h2>
+          <div className="app-row">
+              <div className="app-spacer2">
+                <h2 id="app-heading">Dog You Want to Adopt (Name): </h2>
+                <input type="app-text" id="dogName"/>
+              </div>
+
+              <div className="app-spacer2">
+                <h2 id="app-heading">Names and ages of all current pets: </h2>
+                <input type="app-text" id="currPets"/>
+              </div>
+          </div>
+
+          <div className="app-row">
+              <div className="app-spacer2">
+                <h2 id="app-heading">Your Daily Scehdule:</h2>
                 <textarea id="dailySchedule"></textarea>
               </div>
           </div>
 
-          <div className="center">
+          <div className="app-center">
               <button type="button" id="submit-button">Submit</button>
           </div>
         </div>
