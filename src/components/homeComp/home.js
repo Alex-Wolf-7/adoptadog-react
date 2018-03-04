@@ -100,7 +100,7 @@ class homeComp extends React.Component {
 
     updateNextPage () {
       if (this.state.appStatus === "notReady" || this.state.appStatus === "Submitted") {
-        this.props.history.push('/application-form');
+        this.props.history.push('/application');
       }
       else if (this.state.appStatus === "Completed" && (this.state.discussStatus === "notReady" || this.state.discussStatus === "Submitted")) {
         this.props.history.push('/contact');

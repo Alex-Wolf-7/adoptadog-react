@@ -43,7 +43,7 @@ class kennelPage extends Component {
         </div>
     </div>
     </div>
-    )
+  );
     }
 
 }
