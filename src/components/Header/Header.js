@@ -35,7 +35,7 @@ const Header = () => {
           <a className="header-link hide-link" href="view-application">
             <button className="header-button" type="button">View Application</button>
           </a>
-          <a className="header-link hide-link" href="checklist-admin">
+          <a className="header-link hide-link" href="checklist">
             <button className="header-button" type="button">Adopter Checklist</button>
           </a>
           <a className="header-link hide-link" href="/">
@@ -56,7 +56,7 @@ const Header = () => {
             <a className="dropdown-link hide-link" href="view-application">
               <li className="dropdown-button">View Application</li>
             </a>
-            <a className="dropdown-link hide-link" href="checklist-admin">
+            <a className="dropdown-link hide-link" href="checklist">
               <li className="dropdown-button">Adopter Checklist</li>
             </a>
             <a className="dropdown-link hide-link" href="/">
