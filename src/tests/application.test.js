@@ -11,16 +11,30 @@ configure({ adapter: new Adapter() });
 describe('application via enzyme', () => {
   it('renders application', () => {
     const wrapper = shallow(<application />);
-    expect(wrapper.contains(<application />)).to.equal(true);
+    expect(wrapper.find('.heading')).to.have.length (1);
   });
 
-  it('renders div', () => {
-    const wrapper = shallow(<div />);
-    expect(wrapper.contains(<div />)).to.equal(true);
-  });
-
-  it('renders application', () => {
+  it('renders submit button', () => {
     const wrapper = shallow(<application />);
-    expect(wrapper.contains(<div />)).to.equal(true);
-    });
+    expect(wrapper.find('button')).to.have.length (1);
+  });
+
+  it('renders input', () => {
+    const wrapper = shallow(<application />);
+    expect(wrapper.find('input')).to.have.length (10);
+  });
+
+  it('test submit button', () => {
+    const wrapper = shallow(<application />);
+    var previousLength = wrapper.find ('.heading').length;
+    wrapper.find ('button').simulate ('click');
+    var newLength = wrapper.find ('.heading').length;
+    expect(newLength).to.be.greaterThan (previousLength);
+  });
+
+  it('test loading old information', () => {
+    const wrapper = shallow(<application />);
+    wrapper.find ('#name').node.value = 'abc';
+    expect(wrapper.find('input')).to.have.length (3);
+  });
 });
