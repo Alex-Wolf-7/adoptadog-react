@@ -6,9 +6,7 @@ import App from './Template.js';
 import registerServiceWorker from './registerServiceWorker';
 
 ReactDOM.render((
-  <BrowserRouter>
-  <App />
-  </BrowserRouter>
+    <App />
 
   ), document.getElementById('root'));
 

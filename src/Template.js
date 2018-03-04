@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Switch, Route} from 'react-router-dom';
+import {BrowserRouter, Switch, Route} from 'react-router-dom';
 import './Template.css';
 //Import components as well
 import loginComp from './components/login';
@@ -19,6 +19,7 @@ class Template extends Component {
   render() {
     return (
       <div>
+      <BrowserRouter>
         <Switch>
           <Route exact path='/' component={loginComp} />
           <Route exact path='/home' component={homeComp}/>
@@ -32,6 +33,7 @@ class Template extends Component {
           <Route exact path='/viewApplication' component={viewApplicationComp}/>
           <Route exact path='/contact' component={contactComp}/>
         </Switch>
+        </BrowserRouter>
       </div>
     );
   }

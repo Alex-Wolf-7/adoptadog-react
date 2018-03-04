@@ -24,6 +24,10 @@
   height: 80px
 }
 
+.homeimg {
+  max-width: 100%;
+}
+
 .homeSpan {
   font-size: calc(7px + 1.2vw);
 }

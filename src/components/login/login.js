@@ -7,21 +7,27 @@ class loginComp extends React.Component {
   constructor(props) {
       super(props)
       this.loginFunction = this.loginFunction.bind(this);
+      this.updateEmail = this.updateEmail.bind(this);
+      this.updatePass = this.updatePass.bind(this);
+
+      this.state = {
+        email: "",
+        password: ""
+      }
     }
 
     loginFunction() {
        try {
-           var emailInput = document.getElementById('emailInput').value;
+           var emailInput = this.state.email;
 
-           var passwordInput = document.getElementById('passwordInput').value;
+           var passwordInput = this.state.password;
 
            if (emailInput.length > 0 && passwordInput.length > 0){
              var adopterInput = document.getElementById('adopter-radio');
              var adminInput = document.getElementById('admin-radio');
 
              if (adopterInput.checked){
-               console.log("adopter part");
-               this.props.history.push('/home/');
+               this.props.history.push('/home');
 
                if (typeof(Storage) !== "undefined"){
                  localStorage.setItem("clearance", "user");
@@ -31,7 +37,7 @@ class loginComp extends React.Component {
                  }
                }
                else if (adminInput.checked){
-                 this.props.history.push('/checklist/');
+                 this.props.history.push('/checklist');
                  if (typeof(Storage) !== "undefined"){
                    localStorage.setItem("clearance", "admin");
                  }
@@ -42,6 +48,15 @@ class loginComp extends React.Component {
             }
          }
        catch(err) {}
+     }
+     updateEmail(e) {
+       this.setState({email: e.target.value, password: this.state.password});
+     }
+
+     updatePass(e) {
+       console.log("updating");
+
+       this.setState({email: this.state.email, password: e.target.value});
      }
 
      render() {
@@ -61,14 +76,14 @@ class loginComp extends React.Component {
               <h2 className="h2">Email:&nbsp;&nbsp;&nbsp;&nbsp;</h2>
             </div>
 
-            <input type="text" id="emailInput"/>
+            <input type="text" id="emailInput" onChange={this.updateEmail} value={this.state.email}/>
           </div>
           <div className="row lessMargin">
             <div className="passwordHeader">
               <h2 className="h2">Password:</h2>
             </div>
 
-            <input type="text" id="passwordInput"/>
+            <input type="text" id="passwordInput" onChange={this.updatePass} value={this.state.password}/>
           </div>
 
           <div className="row lessMargin">
