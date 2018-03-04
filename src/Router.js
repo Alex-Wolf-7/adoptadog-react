@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
-import './Template.css';
+import './Router.css';
 //Import components as well
 import loginComp from './components/login';
 import homeComp from './components/homeComp';
@@ -15,7 +15,7 @@ import viewApplicationComp from './components/viewApplicationComp';
 import contactComp from './components/userContact';
 
 
-class Template extends Component {
+class Router extends Component {
   render() {
     return (
       <div>
@@ -39,4 +39,4 @@ class Template extends Component {
   }
 }
 
-export default Template;
+export default Router;
