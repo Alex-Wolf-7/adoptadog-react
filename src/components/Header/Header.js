@@ -32,7 +32,7 @@ const Header = () => {
           <a className="header-link hide-link" href="admin-contact">
             <button className="header-button" type="button">Contact Adopter</button>
           </a>
-          <a className="header-link hide-link" href="view-application">
+          <a className="header-link hide-link" href="viewApplication">
             <button className="header-button" type="button">View Application</button>
           </a>
           <a className="header-link hide-link" href="checklist">

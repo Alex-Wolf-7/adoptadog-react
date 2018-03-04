@@ -6,7 +6,7 @@ class checklist extends Component {
 
   render() {
     const appStatus = localStorage.getItem("applicationStatus");
-    var appForm; 
+    var appForm;
     if(appStatus === "Completed") {
       appForm = "Completed";
     }
@@ -128,7 +128,7 @@ class checklist extends Component {
               <tbody>
                 <tr className="list-item">
                   <td className="list-item-left">
-                    <a href="application-form">Fill out application form:</a>
+                    <a href="application">Fill out application form:</a>
                   </td>
                   <td className="list-item-right">
                     <div id="application-form">{appForm}</div>
