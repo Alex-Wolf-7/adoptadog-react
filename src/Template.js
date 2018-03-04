@@ -7,6 +7,7 @@ import homeComp from './components/homeComp';
 import kennelComp from './components/kennel';
 import aboutComp from './components/about';
 import checklistComp from './components/checklist'
+import allDoneComp from './components/allDone'
 
 class Template extends Component {
   render() {
@@ -18,6 +19,7 @@ class Template extends Component {
           <Route exact path='/kennel' component={kennelComp}/>
           <Route exact path='/about-us' component={aboutComp}/>
           <Route exact path='/checklist' component={checklistComp}/>
+          <Route exact path='/all-done' component={allDoneComp}/>
         </Switch>
       </div>
     );
