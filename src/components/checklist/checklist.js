@@ -144,7 +144,7 @@ class checklist extends Component {
                 </tr>
                 <tr className="list-item">
                   <td className="list-item-left">
-                    <a href="home-visit.html">Shedule Home Check:</a>
+                    <a href="homeVisit">Shedule Home Check:</a>
                   </td>
                   <td className="list-item-right">
                     <div id="home-form">{homeForm}</div>
