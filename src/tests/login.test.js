@@ -13,7 +13,7 @@ describe('Should render my email and password targets, and my submit button'), (
   it('Should render the button form submission', () => {
     const wrapper = mount(<login />);
 
-    expect(wrapper.find('button')).to.have.length(4);
+    expect(wrapper.find('button')).to.have.length(1);
   });
 }
 
