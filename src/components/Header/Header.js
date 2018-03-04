@@ -26,16 +26,16 @@ const Header = () => {
       <div className="header-wrapper">
         <img src={logo} id="logo" alt="logo" />
         <div className="nav-bar">
-          <a className="header-link hide-link" href="kennel">
+          <a className="header-link hide-link" href="/kennel">
             <button className="header-button" type="button">Kennel</button>
           </a>
-          <a className="header-link hide-link" href="admin-contact">
+          <a className="header-link hide-link" href="/contact">
             <button className="header-button" type="button">Contact Adopter</button>
           </a>
-          <a className="header-link hide-link" href="viewApplication">
+          <a className="header-link hide-link" href="/viewApplication">
             <button className="header-button" type="button">View Application</button>
           </a>
-          <a className="header-link hide-link" href="checklist">
+          <a className="header-link hide-link" href="/checklist">
             <button className="header-button" type="button">Adopter Checklist</button>
           </a>
           <a className="header-link hide-link" href="/">
@@ -47,16 +47,16 @@ const Header = () => {
             <div className="dropdown-menu"></div>
           </div>
           <ul id="dropDown" style={dropDownStyle}>
-            <a className="dropdown-link hide-link" href="kennel">
+            <a className="dropdown-link hide-link" href="/kennel">
               <li className="dropdown-button">Kennel</li>
             </a>
-            <a className="dropdown-link hide-link" href="admin-contact">
+            <a className="dropdown-link hide-link" href="/admin">
               <li className="dropdown-button">Contact Adopter</li>
             </a>
-            <a className="dropdown-link hide-link" href="view-application">
+            <a className="dropdown-link hide-link" href="/view-application">
               <li className="dropdown-button">View Application</li>
             </a>
-            <a className="dropdown-link hide-link" href="checklist">
+            <a className="dropdown-link hide-link" href="/checklist">
               <li className="dropdown-button">Adopter Checklist</li>
             </a>
             <a className="dropdown-link hide-link" href="/">

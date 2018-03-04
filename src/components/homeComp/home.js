@@ -1,7 +1,7 @@
 import React from 'react';
 import './home.css';
 import { withRouter } from 'react-router-dom';
-import ClientHeader from '../ClientHeader/ClientHeader.js';
+import Header from '../Header/Header.js';
 import dog from "./sampleDog1.jpg";
 import { userOnly } from "../authenticate.js";
 
@@ -23,7 +23,7 @@ class homeComp extends React.Component {
   render() {
     return (
       <div>
-      <ClientHeader></ClientHeader>
+      <Header></Header>
       <div className="row bordered grey taller halfHeight">
         <span className="spacer1 homeSpan"></span>
         <span className="homeSpan">Next to do:</span>
@@ -43,11 +43,11 @@ class homeComp extends React.Component {
         </div>
         <div className="row noSpacing">
             <div className="row noWidth noSpacing flexDown">
-                <img src={dog} className="img" alt=""/>
+                <img src={dog} className="homeimg" alt=""/>
                 <p>This is some test text</p>
             </div>
             <div className="row noWidth noSpacing flexDown">
-                <img src={dog} className="img" alt=""/>
+                <img src={dog} className="homeimg" alt=""/>
                 <p>This is some test text</p>
             </div>
         </div>
@@ -59,7 +59,7 @@ class homeComp extends React.Component {
   }
     componentWillMount() {
       userOnly();
-      
+
       if(this.state.appStatus === null) {
         this.setState({appStatus: "notReady"});
       }
