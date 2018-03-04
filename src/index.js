@@ -1,8 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {BrowserRouter} from 'react-router-dom';
 import './index.css';
-import App from './Template.js';
+import App from './Router.js';
 import registerServiceWorker from './registerServiceWorker';
 
 ReactDOM.render((

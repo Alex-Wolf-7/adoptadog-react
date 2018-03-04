@@ -10,20 +10,20 @@ class homeComp extends React.Component {
 
 
   constructor(props) {
-      super(props);
-      this.updateNextPage = this.updateNextPage.bind(this);
-      this.state = {
-        appStatus: localStorage.getItem("applicationStatus"),
-        discussStatus: localStorage.getItem("discussionStatus"),
-        homeCheckStatus: localStorage.getItem("homeCheckStatus"),
-        finalStatus: localStorage.getItem("finalStatus"),
-      }
+    super(props);
+    this.updateNextPage = this.updateNextPage.bind(this);
+    this.state = {
+      appStatus: localStorage.getItem("applicationStatus"),
+      discussStatus: localStorage.getItem("discussionStatus"),
+      homeCheckStatus: localStorage.getItem("homeCheckStatus"),
+      finalStatus: localStorage.getItem("finalStatus"),
     }
+  }
 
   render() {
     return (
       <div>
-      <Header></Header>
+      <Header/>
       <div className="row bordered grey taller halfHeight">
         <span className="spacer1 homeSpan"></span>
         <span className="homeSpan">Next to do:</span>
@@ -61,37 +61,38 @@ class homeComp extends React.Component {
       userOnly();
 
       if(this.state.appStatus === null) {
-        this.setState({appStatus: "notReady"});
+        this.setState({appStatus: "Not Complete"});
       }
 
       if(this.state.discussStatus === null) {
-        this.setState({discussStatus: "notReady"});
+        this.setState({discussStatus: "Not Complete"});
       }
 
       if(this.state.homeCheckStatus === null) {
-        this.setState({homeCheckStatus: "notReady"});
+        this.setState({homeCheckStatus: "Not Complete"});
       }
 
       if(this.state.finalStatus === null) {
-        this.setState({finalStatus: "notReady"});
+        this.setState({finalStatus: "Not Complete"});
       }
     }
 
     componentDidMount() {
       this.updateSteps();
       document.getElementById("next-task-button").addEventListener("click", this.updateNextPage);
+      console.log(this);
     }
 
     updateSteps () {
       const todoTask = document.getElementById("todo-tasks");
 
-      if (this.state.appStatus === "notReady" || this.state.appStatus === "Submitted") {
+      if (this.state.appStatus === "Not Complete" || this.state.appStatus === "Submitted") {
         todoTask.innerHTML = "Step #1 - Fill Out The Adoption Form";
       }
-      else if (this.state.appStatus === "Completed" && (this.state.discussStatus === "notReady" || this.state.discussStatus === "Submitted")) {
+      else if (this.state.appStatus === "Completed" && (this.state.discussStatus === "Not Complete" || this.state.discussStatus === "Submitted")) {
         todoTask.innerHTML = "Step #2 - Contact Dog Animal Rescue Adoption Coordinator";
       }
-      else if (this.state.discussStatus === "Completed" && (this.state.homeCheckStatus === "notReady" || this.state.homeCheckStatus === "Submitted")) {
+      else if (this.state.discussStatus === "Completed" && (this.state.homeCheckStatus === "Not Complete" || this.state.homeCheckStatus === "Submitted")) {
         todoTask.innerHTML = "Step #3 - Schedule Your Home Check";
       }
       else if (this.state.homeCheckStatus === "Completed") {
@@ -103,13 +104,14 @@ class homeComp extends React.Component {
     }
 
     updateNextPage () {
-      if (this.state.appStatus === "notReady" || this.state.appStatus === "Submitted") {
+      if (this.state.appStatus === "Not Complete" || this.state.appStatus === "Submitted") {
+        console.log(this.state.appStatus);
         this.props.history.push('/application');
       }
-      else if (this.state.appStatus === "Completed" && (this.state.discussStatus === "notReady" || this.state.discussStatus === "Submitted")) {
+      else if (this.state.appStatus === "Completed" && (this.state.discussStatus === "Not Complete" || this.state.discussStatus === "Submitted")) {
         this.props.history.push('/contact');
       }
-      else if (this.state.discussStatus === "Completed" && (this.state.homeCheckStatus === "notReady" || this.state.homeCheckStatus === "Submitted")) {
+      else if (this.state.discussStatus === "Completed" && (this.state.homeCheckStatus === "Not Complete" || this.state.homeCheckStatus === "Submitted")) {
         this.props.history.push('/home-visit');
       }
       else if (this.state.homeCheckStatus === "Completed") {
