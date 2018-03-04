@@ -141,7 +141,7 @@ class checklist extends Component {
                 </tr>
                 <tr className="list-item">
                   <td className="list-item-left">
-                    <a href="contact-page.html">Discuss Application:</a>
+                    <a href="contact">Discuss Application:</a>
                   </td>
                   <td className="list-item-right">
                     <div id="discuss">{discussForm}</div>
@@ -157,7 +157,7 @@ class checklist extends Component {
                 </tr>
                 <tr className="list-item">
                   <td className="list-item-left">
-                    <a href="all-done.html">Go Get Your New Friend:</a>
+                    <a href="all-done">Go Get Your New Friend:</a>
                   </td>
                   <td className="list-item-right">
                     <div id="final-form">{finalForm}</div>
