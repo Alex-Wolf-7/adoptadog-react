@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './viewApplication.css';
 import { withRouter } from 'react-router-dom';
 import Header from '../Header/Header.js';
+import { adminOnly } from "../authenticate.js"
 
 class viewApplicationComp extends Component {
   render() {
@@ -90,6 +91,10 @@ class viewApplicationComp extends Component {
       </div>
       </div>
     );
+  }
+
+  componentWillMount () {
+    adminOnly();
   }
 
   componentDidMount() {

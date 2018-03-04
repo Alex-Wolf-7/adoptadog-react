@@ -3,7 +3,12 @@ import './allDone.css';
 import Header from '../Header/Header.js'
 import { withRouter } from 'react-router-dom'
 import allDoneDog from "./all-done-dog.jpg"
+import { userOnly } from "../authenticate.js"
+
 class allDone extends Component {
+  componentWillMount () {
+    userOnly();
+  }
 
   render() {
     return (

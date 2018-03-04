@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './homeVisit.css';
 import ClientHeader from '../ClientHeader/ClientHeader.js';
 import { withRouter } from 'react-router-dom';
+import { userOnly } from "../authenticate.js"
 
 class homeVisitComp extends Component {
   constructor(props) {
@@ -42,6 +43,7 @@ class homeVisitComp extends Component {
   }
 
   componentDidMount() {
+    userOnly();
     document.getElementById("home-visit-submit").addEventListener("click", this.submitHomeVisit);
     this.readyHeader();
   }

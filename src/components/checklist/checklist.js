@@ -2,7 +2,12 @@ import React, { Component } from 'react';
 import './checklist.css';
 import Header from '../Header/Header.js'
 import { withRouter } from 'react-router-dom'
+import { adminOrUser } from "../authenticate.js"
+
 class checklist extends Component {
+  componentWillMount () {
+    adminOrUser();
+  }
 
   render() {
     const appStatus = localStorage.getItem("applicationStatus");

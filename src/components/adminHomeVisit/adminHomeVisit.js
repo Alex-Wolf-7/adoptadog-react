@@ -2,7 +2,12 @@ import React, { Component } from 'react';
 import './adminHomeVisit.css';
 import Header from '../Header/Header.js'
 import { withRouter } from 'react-router-dom'
+import { adminOnly } from "../authenticate.js"
+
 class adminHomeVisit extends Component {
+  componentWillMount () {
+    adminOnly();
+  }
 
   render() {
     var date = document.getElementById("home-visit-datepicker");

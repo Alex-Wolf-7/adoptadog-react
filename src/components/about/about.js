@@ -3,7 +3,12 @@ import './about.css';
 import Header from '../Header/Header.js'
 import { withRouter } from 'react-router-dom'
 import shelterPic from "./ucsd-rescue-shelter.jpg"
+import { adminOrUser } from "../authenticate.js"
+
 class aboutUs extends Component {
+  componentWillMount () {
+    adminOrUser(); 
+  }
 
   render() {
     return (

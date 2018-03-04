@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './application.css';
 import { withRouter } from 'react-router-dom';
 import ClientHeader from '../ClientHeader/ClientHeader.js';
+import { userOnly } from "../authenticate.js";
 
 class applicationComp extends Component {
   constructor(props) {
@@ -102,6 +103,8 @@ class applicationComp extends Component {
   }
 
   componentWillMount() {
+    userOnly();
+
     if(localStorage.getItem("applicationStatus") === null) {
       localStorage.setItem({appStatus: "notReady"});
     }

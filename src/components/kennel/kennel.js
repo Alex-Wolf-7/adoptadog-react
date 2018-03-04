@@ -3,7 +3,11 @@ import './kennel.css';
 import ClientHeader from '../ClientHeader/ClientHeader.js'
 import { withRouter } from 'react-router-dom'
 import dog from "./sampleDog1.jpg"
+import { adminOrUser } from "../authenticate.js"
 class kennelPage extends Component {
+  componentWillMount () {
+    adminOrUser();
+  }
 
   render() {
     return (
