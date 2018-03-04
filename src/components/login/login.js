@@ -1,8 +1,7 @@
 import React from 'react';
 import './login.css';
-import logo from '../Header/logo.jpg' // relative path to image
-import { withRouter } from 'react-router-dom'
-
+import logo from '../Header/logo.jpg'; // relative path to image
+import { withRouter } from 'react-router-dom';
 class loginComp extends React.Component {
   constructor(props) {
       super(props)
@@ -26,7 +25,7 @@ class loginComp extends React.Component {
              var adopterInput = document.getElementById('adopter-radio');
              var adminInput = document.getElementById('admin-radio');
 
-             if (adopterInput.checked){
+             if (adopterInput.checked) {
                this.props.history.push('/home');
 
                if (typeof(Storage) !== "undefined"){
