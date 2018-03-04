@@ -41,7 +41,6 @@ const Header = () => {
           <a className="header-link hide-link" href="/">
             <button className="header-button" type="button" onClick={logout}>Logout</button>
           </a>
-          <button className="header-button" type="button" onClick={logout}>Logout</button>
           <div className="dropdown-holder" onClick={controlMenu}>
             <div className="dropdown-menu"></div>
             <div className="dropdown-menu"></div>
