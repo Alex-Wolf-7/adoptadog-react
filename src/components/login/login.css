@@ -74,7 +74,7 @@
     flex-grow: 1;
   }
 
-  img {
+  .img {
     flex-grow: 2;
     max-width: 26%;
   }
