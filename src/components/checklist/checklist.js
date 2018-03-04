@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './checklist.css';
 import Header from '../Header/Header.js'
-import { withRouter } from 'react-router-dom'
+import { withRouter, Link } from 'react-router-dom'
 import { adminOrUser } from "../authenticate.js"
 
 class checklist extends Component {
@@ -92,7 +92,7 @@ class checklist extends Component {
                 </tr>
                 <tr className="list-item">
                   <td className="list-item-left">
-                    <a href="admin-home-visit">Shedule Home Check:</a>
+                    <Link to="admin-home-visit">Shedule Home Check:</Link>
                   </td>
                   <td className="list-item-right">
                     <select defaultValue={homeForm} className="checklist-select" id="home-form">
@@ -133,7 +133,7 @@ class checklist extends Component {
               <tbody>
                 <tr className="list-item">
                   <td className="list-item-left">
-                    <a href="application">Fill out application form:</a>
+                    <Link to="application">Fill out application form:</Link>
                   </td>
                   <td className="list-item-right">
                     <div id="application-form">{appForm}</div>
@@ -141,7 +141,7 @@ class checklist extends Component {
                 </tr>
                 <tr className="list-item">
                   <td className="list-item-left">
-                    <a href="contact">Discuss Application:</a>
+                    <Link to="contact">Discuss Application:</Link>
                   </td>
                   <td className="list-item-right">
                     <div id="discuss">{discussForm}</div>
@@ -149,7 +149,7 @@ class checklist extends Component {
                 </tr>
                 <tr className="list-item">
                   <td className="list-item-left">
-                    <a href="homeVisit">Shedule Home Check:</a>
+                    <Link to="homeVisit">Shedule Home Check:</Link>
                   </td>
                   <td className="list-item-right">
                     <div id="home-form">{homeForm}</div>
@@ -157,7 +157,7 @@ class checklist extends Component {
                 </tr>
                 <tr className="list-item">
                   <td className="list-item-left">
-                    <a href="all-done">Go Get Your New Friend:</a>
+                    <Link to="all-done">Go Get Your New Friend:</Link>
                   </td>
                   <td className="list-item-right">
                     <div id="final-form">{finalForm}</div>
