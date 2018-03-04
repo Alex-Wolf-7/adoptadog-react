@@ -2,6 +2,7 @@ import React from 'react';
 import "./Header.css";
 import logo from "./logo.jpg";
 import "./noMargins.css";
+import { Link } from "react-router-dom"
 
 const Header = () => {
 
@@ -26,42 +27,42 @@ const Header = () => {
       <div className="header-wrapper">
         <img src={logo} id="logo" alt="logo" />
         <div className="nav-bar">
-          <a className="header-link hide-link" href="/kennel">
+          <Link className="header-link hide-link" to="/kennel">
             <button className="header-button" type="button">Kennel</button>
-          </a>
-          <a className="header-link hide-link" href="/contact">
+          </Link>
+          <Link className="header-link hide-link" to="/contact">
             <button className="header-button" type="button">Contact Adopter</button>
-          </a>
-          <a className="header-link hide-link" href="/viewApplication">
+          </Link>
+          <Link className="header-link hide-link" to="/viewApplication">
             <button className="header-button" type="button">View Application</button>
-          </a>
-          <a className="header-link hide-link" href="/checklist">
+          </Link>
+          <Link className="header-link hide-link" to="/checklist">
             <button className="header-button" type="button">Adopter Checklist</button>
-          </a>
-          <a className="header-link hide-link" href="/">
+          </Link>
+          <Link className="header-link hide-link" to="/">
             <button className="header-button" type="button" onClick={logout}>Logout</button>
-          </a>
+          </Link>
           <div className="dropdown-holder" onClick={controlMenu}>
             <div className="dropdown-menu"></div>
             <div className="dropdown-menu"></div>
             <div className="dropdown-menu"></div>
           </div>
           <ul id="dropDown" style={dropDownStyle}>
-            <a className="dropdown-link hide-link" href="/kennel">
+            <Link className="dropdown-link hide-link" to="/kennel">
               <li className="dropdown-button">Kennel</li>
-            </a>
-            <a className="dropdown-link hide-link" href="/admin">
+            </Link>
+            <Link className="dropdown-link hide-link" to="/admin">
               <li className="dropdown-button">Contact Adopter</li>
-            </a>
-            <a className="dropdown-link hide-link" href="/view-application">
+            </Link>
+            <Link className="dropdown-link hide-link" to="/view-application">
               <li className="dropdown-button">View Application</li>
-            </a>
-            <a className="dropdown-link hide-link" href="/checklist">
+            </Link>
+            <Link className="dropdown-link hide-link" to="/checklist">
               <li className="dropdown-button">Adopter Checklist</li>
-            </a>
-            <a className="dropdown-link hide-link" href="/">
+            </Link>
+            <Link className="dropdown-link hide-link" to="/">
               <li className="dropdown-button" onClick={logout}>Logout</li>
-            </a>
+            </Link>
           </ul>
         </div>
       </div>
@@ -71,42 +72,42 @@ const Header = () => {
       <div className="header-wrapper">
         <img src={logo} id="logo" alt="logo" />
         <div className="nav-bar">
-          <a className="header-link hide-link" href="home">
+          <Link className="header-link hide-link" to="home">
             <button className="header-button" type="button">Home</button>
-          </a>
-          <a className="header-link hide-link" href="about-us">
+          </Link>
+          <Link className="header-link hide-link" to="about-us">
             <button className="header-button" type="button">About Us</button>
-          </a>
-          <a className="header-link hide-link" href="kennel">
+          </Link>
+          <Link className="header-link hide-link" to="kennel">
             <button className="header-button" type="button">Kennel</button>
-          </a>
-          <a className="header-link hide-link" href="checklist">
+          </Link>
+          <Link className="header-link hide-link" to="checklist">
             <button className="header-button" type="button">Checklist</button>
-          </a>
-          <a className="header-link hide-link" href="/">
+          </Link>
+          <Link className="header-link hide-link" to="/">
             <button className="header-button" type="button" onClick={logout}>Logout</button>
-          </a>
+          </Link>
           <div className="dropdown-holder" onClick={controlMenu}>
             <div className="dropdown-menu"></div>
             <div className="dropdown-menu"></div>
             <div className="dropdown-menu"></div>
           </div>
           <ul id="dropDown" style={dropDownStyle}>
-            <a className="dropdown-link hide-link" href="home">
+            <Link className="dropdown-link hide-link" to="home">
               <li className="dropdown-button">Home</li>
-            </a>
-            <a className="dropdown-link hide-link" href="about-us">
+            </Link>
+            <Link className="dropdown-link hide-link" to="about-us">
               <li className="dropdown-button">About Us</li>
-            </a>
-            <a className="dropdown-link hide-link" href="kennel">
+            </Link>
+            <Link className="dropdown-link hide-link" to="kennel">
               <li className="dropdown-button">Kennel</li>
-            </a>
-            <a className="dropdown-link hide-link" href="checklist">
+            </Link>
+            <Link className="dropdown-link hide-link" to="checklist">
               <li className="dropdown-button">Checklist</li>
-            </a>
-            <a className="dropdown-link hide-link" href="/">
+            </Link>
+            <Link className="dropdown-link hide-link" to="/">
               <li className="dropdown-button" onClick={logout}>Logout</li>
-            </a>
+            </Link>
           </ul>
         </div>
       </div>
