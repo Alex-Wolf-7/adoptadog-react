@@ -61,19 +61,19 @@ class homeComp extends React.Component {
       userOnly();
       
       if(this.state.appStatus === null) {
-        this.setState({appStatus: "notReady"})
+        this.setState({appStatus: "notReady"});
       }
 
       if(this.state.discussStatus === null) {
-        this.setState({discussStatus: "notReady"})
+        this.setState({discussStatus: "notReady"});
       }
 
       if(this.state.homeCheckStatus === null) {
-        this.setState({homeCheckStatus: "notReady"})
+        this.setState({homeCheckStatus: "notReady"});
       }
 
       if(this.state.finalStatus === null) {
-        this.setState({finalStatus: "notReady"})
+        this.setState({finalStatus: "notReady"});
       }
     }
 

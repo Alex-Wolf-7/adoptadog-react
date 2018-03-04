@@ -12,6 +12,8 @@ import applicationComp from './components/applicationComp';
 import adminHomeVisitComp from './components/adminHomeVisit';
 import homeVisitComp from './components/homeVisit';
 import viewApplicationComp from './components/viewApplicationComp';
+import contactComp from './components/userContact';
+
 
 class Template extends Component {
   render() {
@@ -28,6 +30,7 @@ class Template extends Component {
           <Route exact path='/admin-home-visit' component={adminHomeVisitComp}/>
           <Route exact path='/homeVisit' component={homeVisitComp}/>
           <Route exact path='/viewApplication' component={viewApplicationComp}/>
+          <Route exact path='/contact' component={contactComp}/>
         </Switch>
       </div>
     );
