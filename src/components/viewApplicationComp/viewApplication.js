@@ -8,7 +8,7 @@ class viewApplicationComp extends Component {
   render() {
     return (
       <div>
-      <Header></Header>
+      <Header/>
       <div className="form-view-wrapper view-bordered">
           <div className="view-header">
               <h2 id="view-heading">Dog Application Form</h2>

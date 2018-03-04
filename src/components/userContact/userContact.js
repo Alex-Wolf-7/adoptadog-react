@@ -1,7 +1,7 @@
 import React from 'react';
 import './userContact.css';
 import { withRouter } from 'react-router-dom';
-import ClientHeader from '../ClientHeader/ClientHeader.js';
+import Header from '../Header/Header.js';
 
 
 class userContact extends React.Component {
@@ -21,7 +21,7 @@ class userContact extends React.Component {
   render() {
     return (
       <div>
-      <ClientHeader></ClientHeader>
+      <Header/>
 
       <div className="form-wrapper bordered">
         <div className="header">

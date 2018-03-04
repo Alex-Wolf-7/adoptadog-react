@@ -7,7 +7,6 @@ import { withRouter } from 'react-router-dom';
 
 
 const Header = () => {
-  const clearance = localStorage.getItem("clearance");
   var dropDownStyle = { display: "none" };
 
   function logout() {

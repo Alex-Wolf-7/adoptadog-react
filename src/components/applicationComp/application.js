@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './application.css';
 import { withRouter } from 'react-router-dom';
-import ClientHeader from '../ClientHeader/ClientHeader.js';
+import Header from '../Header/Header.js';
 import { userOnly } from "../authenticate.js";
 
 class applicationComp extends Component {
@@ -13,7 +13,7 @@ class applicationComp extends Component {
   render() {
     return (
       <div>
-      <ClientHeader></ClientHeader>
+      <Header/>
       <div className="form-app-wrapper app-bordered">
           <div className="app-header">
               <h2 id="heading">Dog Application Form</h2>
@@ -138,8 +138,6 @@ class applicationComp extends Component {
   }
 
   saveInfo() {
-    var completed = false;
-
     var name = document.getElementById("name");
     var address = document.getElementById("address");
     var housing = document.getElementById("housing");

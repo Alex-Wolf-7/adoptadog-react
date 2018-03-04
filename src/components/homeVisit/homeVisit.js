@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './homeVisit.css';
-import ClientHeader from '../ClientHeader/ClientHeader.js';
+import Header from '../Header/Header.js';
 import { withRouter } from 'react-router-dom';
 import { userOnly } from "../authenticate.js"
 
@@ -13,7 +13,7 @@ class homeVisitComp extends Component {
   render() {
     return (
       <div>
-      <ClientHeader></ClientHeader>
+      <Header/>
       <div className="home-visit-wrapper">
           <h2 className="home-visit-header" id="home-visit-head">Schedule Home Visit</h2>
           <p className="home-visit-text">Work Hours: Monday - Friday, 9am - 5pm</p>
@@ -75,13 +75,13 @@ class homeVisitComp extends Component {
     const comments = document.getElementById("home-visit-comments");
     const time = document.getElementById("home-visit-time");
 
-    if (done == "notReady") {
+    if (done === "notReady") {
       document.getElementById("home-visit-head").innerHTML =
         "Schedule Home Visit";
-    } else if (done == "Submitted") {
+    } else if (done === "Submitted") {
       document.getElementById("home-visit-head").innerHTML =
         "Schedule Home Visit (Submitted)";
-    } else if (done == "Completed") {
+    } else if (done === "Completed") {
       document.getElementById("home-visit-head").innerHTML =
         "Schedule Home Visit (Completed)";
     }

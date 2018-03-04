@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './kennel.css';
-import ClientHeader from '../ClientHeader/ClientHeader.js'
+import Header from '../Header/Header.js'
 import { withRouter } from 'react-router-dom'
 import dog from "./sampleDog1.jpg"
 import { adminOrUser } from "../authenticate.js"
@@ -12,7 +12,7 @@ class kennelPage extends Component {
   render() {
     return (
       <div>
-      <ClientHeader></ClientHeader>
+      <Header/>
     <div className="kennelrow marginLeftFive smaller bordered grey">
         <div className="kennelrow smaller">
             <span className="spacer1"></span>
