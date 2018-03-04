@@ -3,9 +3,11 @@ import './home.css';
 import { withRouter } from 'react-router-dom';
 import ClientHeader from '../ClientHeader/ClientHeader.js';
 import dog from "./sampleDog1.jpg";
+import { userOnly } from "../authenticate.js";
 
 
 class homeComp extends React.Component {
+
 
   constructor(props) {
       super(props);
@@ -56,6 +58,8 @@ class homeComp extends React.Component {
     );
   }
     componentWillMount() {
+      userOnly();
+      
       if(this.state.appStatus === null) {
         this.setState({appStatus: "notReady"});
       }
@@ -100,7 +104,7 @@ class homeComp extends React.Component {
 
     updateNextPage () {
       if (this.state.appStatus === "notReady" || this.state.appStatus === "Submitted") {
-        this.props.history.push('/application-form');
+        this.props.history.push('/application');
       }
       else if (this.state.appStatus === "Completed" && (this.state.discussStatus === "notReady" || this.state.discussStatus === "Submitted")) {
         this.props.history.push('/contact');

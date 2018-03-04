@@ -1,0 +1,38 @@
+.all-done-header {
+    margin: 10px;
+    font-size: calc(12px + 1.4vw);
+}
+
+.all-done-wrapper {
+    background-color: #9DA39A;
+    margin: 40px auto;
+    padding: 10px;
+    width: 85%;
+    border: 1px;
+    border-style: solid;
+}
+
+.all-done-picture {
+    width: 90%;
+    border: 5px;
+    border-style: solid;
+    border-color: #ACBEA3;
+    margin: 0px 0px 10px 10px;
+}
+
+.all-done-info {
+    margin: 10px 20px 10px 20px;
+    font-size: calc(7px + 1vw);
+}
+
+@media screen and (min-width: 480px) {
+    .all-done-wrapper {
+        width: 65%;
+        margin: 80px auto;
+    }
+
+    .all-done-picture {
+        width: 75%;
+        margin: 10px 0px 10px 30px;
+    }
+}

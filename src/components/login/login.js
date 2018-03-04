@@ -31,7 +31,7 @@ class loginComp extends React.Component {
                  }
                }
                else if (adminInput.checked){
-                 this.props.history.push('/home/');
+                 this.props.history.push('/checklist/');
                  if (typeof(Storage) !== "undefined"){
                    localStorage.setItem("clearance", "admin");
                  }
