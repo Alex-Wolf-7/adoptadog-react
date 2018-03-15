@@ -60,8 +60,8 @@ class userContact extends React.Component {
     componentWillMount() {
       //set any stateful info from the localStorage
       if(JSON.parse(localStorage.getItem("chatLog")) !== null) {
-        this.setState({chatLog: JSON.parse(localStorage.getItem("chatLog"))});
-
+        //this.setState({chatLog: JSON.parse(localStorage.getItem("chatLog"))});
+        this.props.chatActions.loadLogs(JSON.parse(localStorage.getItem("chatLog")));
         //console.log(this.state.chatLog);
 
       }
@@ -92,23 +92,25 @@ class userContact extends React.Component {
       document.getElementById("input-field").value = "";
 
       //Turn this into a mock api call?
-      this.props.chatActions.sendMessage(msg);
+      this.props.chatActions.sendMessage(msg, localStorage.getItem("clearance"));
 
-      // if(typeof(Storage) !== "undefined") {
-      //   //store the message into the storage space
-      //   this.state.chatLog.push({message: msg, sender: localStorage.getItem("clearance")});
-      //   localStorage.setItem("chatLog", JSON.stringify(this.state.chatLog));
-      // } else {
-      //   //do nothing, there is no storage on this browser
-      // }
+      if(typeof(Storage) !== "undefined") {
+        //store the message into the storage space
+        localStorage.setItem("chatLog", JSON.stringify(this.props.chatLog));
+      } else {
+        //do nothing, there is no storage on this browser
+      }
     }
   }
 
   loadMessageLogs() {
-    if (this.state.chatLog !== null) {
-      for (var i = 0; i < this.state.chatLog.length; i++) {
-        var msg = this.state.chatLog[i].message;
-        var sender = this.state.chatLog[i].sender;
+    console.log(this.props);
+    if (this.props.chatLog !== []) {
+      console.log("in here");
+      for (var i = 0; i < this.props.chatLog.length; i++) {
+        console.log("hey in the loop");
+        var msg = this.props.chatLog[i].message;
+        var sender = this.props.chatLog[i].sender;
         var chatbox = document.getElementById("internal-list");
         var newMessage = document.createElement("li");
         newMessage.innerHTML = msg;
