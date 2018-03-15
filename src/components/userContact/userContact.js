@@ -2,7 +2,10 @@ import React from 'react';
 import './userContact.css';
 import { withRouter } from 'react-router-dom';
 import Header from '../Header/Header.js';
-
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
+import PropTypes from 'prop-types';
+import * as chatActions from '../../actions/chatActions';
 
 class userContact extends React.Component {
 
@@ -58,8 +61,8 @@ class userContact extends React.Component {
       //set any stateful info from the localStorage
       if(JSON.parse(localStorage.getItem("chatLog")) !== null) {
         this.setState({chatLog: JSON.parse(localStorage.getItem("chatLog"))});
-          
-        console.log(this.state.chatLog);
+
+        //console.log(this.state.chatLog);
 
       }
     }
@@ -88,13 +91,16 @@ class userContact extends React.Component {
       chatbox.appendChild(newMessage);
       document.getElementById("input-field").value = "";
 
-      if(typeof(Storage) !== "undefined") {
-        //store the message into the storage space
-        this.state.chatLog.push({message: msg, sender: localStorage.getItem("clearance")});
-        localStorage.setItem("chatLog", JSON.stringify(this.state.chatLog));
-      } else {
-        //do nothing, there is no storage on this browser
-      }
+      //Turn this into a mock api call?
+      this.props.chatActions.sendMessage(msg);
+
+      // if(typeof(Storage) !== "undefined") {
+      //   //store the message into the storage space
+      //   this.state.chatLog.push({message: msg, sender: localStorage.getItem("clearance")});
+      //   localStorage.setItem("chatLog", JSON.stringify(this.state.chatLog));
+      // } else {
+      //   //do nothing, there is no storage on this browser
+      // }
     }
   }
 
@@ -130,4 +136,23 @@ class userContact extends React.Component {
   }
 
 }
-export default withRouter(userContact);
+
+userContact.propTypes = {
+  chatActions: PropTypes.object,
+  chatLog: PropTypes.array
+};
+
+
+function mapStateToProps(state) {
+  return {
+    chatLog: state.chatLog
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    chatActions: bindActionCreators(chatActions, dispatch)
+  };
+}
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(userContact));
