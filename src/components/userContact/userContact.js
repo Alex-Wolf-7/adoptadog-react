@@ -15,7 +15,7 @@ class userContact extends React.Component {
       this.loadMessageLogs = this.loadMessageLogs.bind(this);
 
       this.state = {
-        userClearance: localStorage.getItem("clearance"),
+        userClearance: this.props.clearance,
         chatLog: [{message:"", sender:""}]
 
       }
@@ -58,18 +58,11 @@ class userContact extends React.Component {
     );
   }
     componentWillMount() {
-      //set any stateful info from the localStorage
-      if(JSON.parse(localStorage.getItem("chatLog")) !== null) {
-        //this.setState({chatLog: JSON.parse(localStorage.getItem("chatLog"))});
-        this.props.chatActions.loadLogs(JSON.parse(localStorage.getItem("chatLog")));
-        //console.log(this.state.chatLog);
 
-      }
     }
 
     componentDidMount() {
       document.getElementById("submit-button").addEventListener("click", this.sendMessage, false);
-      // localStorage.removeItem("chatLog");
       var promise = new Promise((resolve, reject) => {
         resolve();
       });
@@ -92,23 +85,15 @@ class userContact extends React.Component {
       document.getElementById("input-field").value = "";
 
       //Turn this into a mock api call?
-      this.props.chatActions.sendMessage(msg, localStorage.getItem("clearance"));
+      this.props.chatActions.sendMessage(msg, this.props.clearance);
 
-      if(typeof(Storage) !== "undefined") {
-        //store the message into the storage space
-        localStorage.setItem("chatLog", JSON.stringify(this.props.chatLog));
-      } else {
-        //do nothing, there is no storage on this browser
-      }
     }
   }
 
   loadMessageLogs() {
     console.log(this.props);
     if (this.props.chatLog !== []) {
-      console.log("in here");
       for (var i = 0; i < this.props.chatLog.length; i++) {
-        console.log("hey in the loop");
         var msg = this.props.chatLog[i].message;
         var sender = this.props.chatLog[i].sender;
         var chatbox = document.getElementById("internal-list");
