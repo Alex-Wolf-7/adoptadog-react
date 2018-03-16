@@ -3,10 +3,13 @@ import './checklist.css';
 import Header from '../Header/Header.js'
 import { withRouter, Link } from 'react-router-dom'
 import { adminOrUser } from "../authenticate.js"
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
+import PropTypes from 'prop-types';
 
 class checklist extends Component {
   componentWillMount () {
-    adminOrUser();
+    adminOrUser(this.props.clearance);
   }
 
   render() {
@@ -186,4 +189,21 @@ function submit() {
   alert("Checklist saved");
 }
 
-export default withRouter(checklist);
+
+checklist.propTypes = {
+  clearance: PropTypes.string
+};
+
+
+function mapStateToProps(state) {
+  return {
+    clearance: state.clearance
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+  };
+}
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(checklist));

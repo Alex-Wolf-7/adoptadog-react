@@ -4,10 +4,13 @@ import Header from '../Header/Header.js'
 import { withRouter } from 'react-router-dom'
 import allDoneDog from "./all-done-dog.jpg"
 import { userOnly } from "../authenticate.js"
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
+import PropTypes from 'prop-types';
 
 class allDone extends Component {
   componentWillMount () {
-    userOnly();
+    userOnly(this.props.clearance);
   }
 
   render() {
@@ -28,4 +31,21 @@ class allDone extends Component {
     );
   }
 }
-export default withRouter(allDone);
+
+allDone.propTypes = {
+  clearance: PropTypes.string
+};
+
+
+function mapStateToProps(state) {
+  return {
+    clearance: state.clearance
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+  };
+}
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(allDone));

@@ -3,6 +3,9 @@ import './viewApplication.css';
 import { withRouter } from 'react-router-dom';
 import Header from '../Header/Header.js';
 import { adminOnly } from "../authenticate.js"
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
+import PropTypes from 'prop-types';
 
 class viewApplicationComp extends Component {
   render() {
@@ -94,7 +97,7 @@ class viewApplicationComp extends Component {
   }
 
   componentWillMount () {
-    adminOnly();
+    adminOnly(this.props.clearance);
   }
 
   componentDidMount() {
@@ -112,4 +115,20 @@ class viewApplicationComp extends Component {
   }
 }
 
-export default withRouter(viewApplicationComp);
+viewApplicationComp.propTypes = {
+  clearance: PropTypes.string
+};
+
+
+function mapStateToProps(state) {
+  return {
+    clearance: state.clearance
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+  };
+}
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(viewApplicationComp));

@@ -2,6 +2,11 @@ import React from 'react';
 import './login.css';
 import logo from '../Header/logo.jpg'; // relative path to image
 import { withRouter } from 'react-router-dom';
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
+import PropTypes from 'prop-types';
+import * as loginActions from '../../actions/loginActions';
+
 class loginComp extends React.Component {
   constructor(props) {
       super(props)
@@ -18,7 +23,7 @@ class loginComp extends React.Component {
     loginFunction() {
        try {
            var emailInput = this.state.email;
-
+           console.log("what");
            var passwordInput = this.state.password;
 
            if (emailInput.length > 0 && passwordInput.length > 0){
@@ -26,25 +31,14 @@ class loginComp extends React.Component {
              var adminInput = document.getElementById('admin-radio');
 
              if (adopterInput.checked) {
+               this.props.loginActions.setClearance("user");
                this.props.history.push('/home');
-
-               if (typeof(Storage) !== "undefined"){
-                 localStorage.setItem("clearance", "user");
-               }
-               else {
-                   // Sorry! No Web Storage support..
-                 }
-               }
-               else if (adminInput.checked){
-                 this.props.history.push('/checklist');
-                 if (typeof(Storage) !== "undefined"){
-                   localStorage.setItem("clearance", "admin");
-                 }
-                 else {
-                   // Sorry! No Web Storage support..
-                 }
-               }
-            }
+             }
+             else if (adminInput.checked){
+               this.props.loginActions.setClearance("admin");
+               this.props.history.push('/checklist');
+             }
+           }
          }
        catch(err) {}
      }
@@ -101,13 +95,27 @@ class loginComp extends React.Component {
             <button onClick={this.loginFunction} type="button" id="login-button">Login</button>
         </div>
     </div>
-
-
-  );
-
+    );
+  }
 }
 
+loginComp.propTypes = {
+  loginActions: PropTypes.object,
+  clearance: PropTypes.string
+};
 
 
-    }
-    export default withRouter(loginComp);
+function mapStateToProps(state) {
+  return {
+    chatLog: state.chatLog,
+    clearance: state.clearance
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    loginActions: bindActionCreators(loginActions, dispatch)
+  };
+}
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(loginComp));

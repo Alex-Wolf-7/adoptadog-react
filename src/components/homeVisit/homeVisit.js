@@ -3,6 +3,9 @@ import './homeVisit.css';
 import Header from '../Header/Header.js';
 import { withRouter } from 'react-router-dom';
 import { userOnly } from "../authenticate.js"
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
+import PropTypes from 'prop-types';
 
 class homeVisitComp extends Component {
   constructor(props) {
@@ -43,7 +46,7 @@ class homeVisitComp extends Component {
   }
 
   componentDidMount() {
-    userOnly();
+    userOnly(this.props.clearance);
     document.getElementById("home-visit-submit").addEventListener("click", this.submitHomeVisit);
     this.readyHeader();
   }
@@ -92,4 +95,21 @@ class homeVisitComp extends Component {
   }
 }
 
-export default withRouter (homeVisitComp);
+
+homeVisitComp.propTypes = {
+  clearance: PropTypes.string
+};
+
+
+function mapStateToProps(state) {
+  return {
+    clearance: state.clearance
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+  };
+}
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(homeVisitComp));

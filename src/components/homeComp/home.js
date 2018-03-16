@@ -4,7 +4,10 @@ import { withRouter } from 'react-router-dom';
 import Header from '../Header/Header.js';
 import dog from "./sampleDog1.jpg";
 import { userOnly } from "../authenticate.js";
-
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
+import PropTypes from 'prop-types';
+import * as chatActions from '../../actions/chatActions';
 
 class homeComp extends React.Component {
 
@@ -58,7 +61,8 @@ class homeComp extends React.Component {
     );
   }
     componentWillMount() {
-      userOnly();
+      console.log(this.props.clearance);
+      userOnly(this.props.clearance);
 
       if(this.state.appStatus === null) {
         this.setState({appStatus: "Not Complete"});
@@ -80,7 +84,6 @@ class homeComp extends React.Component {
     componentDidMount() {
       this.updateSteps();
       document.getElementById("next-task-button").addEventListener("click", this.updateNextPage);
-      console.log(this);
     }
 
     updateSteps () {
@@ -123,4 +126,22 @@ class homeComp extends React.Component {
     }
 
   }
-  export default withRouter(homeComp);
+  homeComp.propTypes = {
+    chatActions: PropTypes.object,
+    chatLog: PropTypes.array,
+    clearance: PropTypes.string
+  };
+
+
+  function mapStateToProps(state) {
+    return {
+      clearance: state.clearance
+    };
+  }
+
+  function mapDispatchToProps(dispatch) {
+    return {
+    };
+  }
+
+  export default withRouter(connect(mapStateToProps, mapDispatchToProps)(homeComp));

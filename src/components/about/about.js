@@ -4,10 +4,13 @@ import Header from '../Header/Header.js'
 import { withRouter } from 'react-router-dom'
 import shelterPic from "./ucsd-rescue-shelter.jpg"
 import { adminOrUser } from "../authenticate.js"
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
+import PropTypes from 'prop-types';
 
 class aboutUs extends Component {
   componentWillMount () {
-    adminOrUser(); 
+    adminOrUser(this.props.clearance);
   }
 
   render() {
@@ -30,4 +33,20 @@ class aboutUs extends Component {
     );
   }
 }
-export default withRouter(aboutUs);
+aboutUs.propTypes = {
+  clearance: PropTypes.string
+};
+
+
+function mapStateToProps(state) {
+  return {
+    clearance: state.clearance
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+  };
+}
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(aboutUs));

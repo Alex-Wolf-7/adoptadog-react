@@ -3,6 +3,9 @@ import './application.css';
 import { withRouter } from 'react-router-dom';
 import Header from '../Header/Header.js';
 import { userOnly } from "../authenticate.js";
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
+import PropTypes from 'prop-types';
 
 class applicationComp extends Component {
   constructor(props) {
@@ -103,7 +106,7 @@ class applicationComp extends Component {
   }
 
   componentWillMount() {
-    userOnly();
+    userOnly(this.props.clearance);
 
     if(localStorage.getItem("applicationStatus") === null) {
       localStorage.setItem({appStatus: "notReady"});
@@ -179,4 +182,20 @@ class applicationComp extends Component {
   }
 }
 
-export default withRouter(applicationComp);
+applicationComp.propTypes = {
+  clearance: PropTypes.string
+};
+
+
+function mapStateToProps(state) {
+  return {
+    clearance: state.clearance
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+  };
+}
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(applicationComp));
