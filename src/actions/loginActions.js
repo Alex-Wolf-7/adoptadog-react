@@ -6,3 +6,9 @@ export function setClearance(clearance) {
     clearance
   }
 }
+
+export function setInitialStatuses() {
+  return {
+    type: types.INIT_STATUSES
+  }
+}

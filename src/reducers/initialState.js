@@ -1,4 +1,10 @@
 export default {
   clearance: "",
-  chatLog: []
-};
+  chatLog: [],
+  statuses: {
+              appStatus: "Not Complete",
+              discussStatus: "Not Complete",
+              homeCheckStatus: "Not Complete",
+              finalStatus: "Not Complete",
+            }
+  };
