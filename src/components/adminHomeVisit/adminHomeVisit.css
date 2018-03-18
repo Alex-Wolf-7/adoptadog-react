@@ -36,6 +36,7 @@
 .home-visit-comments {
     margin: 10px 20px;
     width: 80%;
+    font-size: calc(4px + .6vw);
     height: 100px;
 }
 
@@ -44,7 +45,7 @@
     font-size: calc(4px + .6vw);
     display: block;
     margin: 10px 20px;
-}   
+}
 
 @media screen and (min-width: 480px) {
     .home-visit-wrapper {

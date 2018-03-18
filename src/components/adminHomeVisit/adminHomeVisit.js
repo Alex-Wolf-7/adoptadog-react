@@ -26,12 +26,12 @@ class adminHomeVisit extends Component {
           <h2 className="home-visit-header">Planned Home Visit</h2>
 
           <p className="home-visit-text">Date Selected for the visit:</p>
-          <h3 className="home-visit-date" id="home-visit-datepicker">{date}</h3>
+          <h3 className="home-visit-date" id="home-visit-datepicker">{this.props.homeVisit.date}</h3>
           <p className="home-visit-text">Time selected for the visit:</p>
-          <h3 className="home-visit-text" id="home-visit-time">{time}</h3>
+          <h3 className="home-visit-text" id="home-visit-time">{this.props.homeVisit.time}</h3>
 
-           <p className="home-visit-text">Additional Comments:</p>
-          <h5 className="home-visit-comments" id="home-visit-comments">{comments}</h5>
+          <p className="home-visit-text">Additional Comments:</p>
+          <h5 className="home-visit-comments" id="home-visit-comments">{this.props.homeVisit.comments}</h5>
         </div>
       </div>
     );
@@ -50,8 +50,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return {
-  };
+  return {};
 }
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(adminHomeVisit));
