@@ -3,3 +3,4 @@ export const LOAD_LOGS = 'LOAD_LOGS';
 export const SET_CLEARANCE = 'SET_CLEARANCE';
 export const INIT_STATUSES = 'INIT_STATUSES';
 export const SAVE_CHECKLIST = 'SAVE_CHECKLIST';
+export const SAVE_APPLICATION = 'SAVE_APPLICATION';
