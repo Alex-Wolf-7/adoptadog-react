@@ -5,11 +5,15 @@ import { withRouter } from 'react-router-dom';
 import { userOnly } from "../authenticate.js"
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
+import { bindActionCreators } from 'redux';
+import * as homeVisitActions from '../../actions/homeVisitActions';
+import * as checklistActions from '../../actions/checklistActions';
 
 class homeVisitComp extends Component {
   constructor(props) {
       super(props);
       this.submitHomeVisit = this.submitHomeVisit.bind(this);
+      this.readyHeader = this.readyHeader.bind(this);
   }
 
   render() {
@@ -57,11 +61,9 @@ class homeVisitComp extends Component {
 
     console.log(comments.value);
     if (date.value.length > 0 && comments.value.length > 0) {
-      localStorage.setItem("visitDate", date.value);
-      localStorage.setItem("visitComments", comments.value);
-      localStorage.setItem("visitTime", time.value);
-
-      localStorage.setItem("homeCheckStatus", "Submitted");
+      this.props.homeVisitActions.saveHomeVisit(date.value, time.value, comments.value);
+      this.props.checklistActions.changeHomeCheckStatus("Submitted");
+      
       document.getElementById("home-visit-head").innerHTML =
         "Schedule Home Visit (Submitted)";
     } else {
@@ -71,7 +73,7 @@ class homeVisitComp extends Component {
   }
 
   readyHeader () {
-    const done = localStorage.getItem("homeCheckStatus");
+    const done = this.props.statuses.homeCheckStatus;
 
     const date = document.getElementById("home-visit-datepicker");
     const comments = document.getElementById("home-visit-comments");
@@ -88,9 +90,9 @@ class homeVisitComp extends Component {
         "Schedule Home Visit (Completed)";
     }
 
-    date.value = localStorage.getItem("visitDate");
-    comments.value = localStorage.getItem("visitComments");
-    time.value = localStorage.getItem("visitTime");
+    date.value = this.props.homeVisit.date;
+    comments.value = this.props.homeVisit.comments;
+    time.value = this.props.homeVisit.time;
   }
 }
 
@@ -102,12 +104,22 @@ homeVisitComp.propTypes = {
 
 function mapStateToProps(state) {
   return {
-    clearance: state.clearance
+    clearance: state.clearance,
+    homeVisit: {
+      date: state.homeVisit.date,
+      time: state.homeVisit.time,
+      comments: state.homeVisit.comments,
+    },
+    statuses: {
+      homeCheckStatus: state.statuses.homeCheckStatus,
+    },
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
+    homeVisitActions: bindActionCreators(homeVisitActions, dispatch),
+    checklistActions: bindActionCreators(checklistActions, dispatch),
   };
 }
 
