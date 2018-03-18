@@ -3,8 +3,12 @@ import * as types from '../actions/ActionTypes'
  
 describe('homeVisit reducer', () => {
   it('should return the initial state', () => {
-    expect(reducer([], {})).toEqual(
-      homeVisit: {
+    expect(reducer({
+      date: "",
+      time: "",
+      comments: "",
+    }, {})).toEqual(
+      {
         date: "",
         time: "",
         comments: "",
@@ -21,7 +25,7 @@ describe('homeVisit reducer', () => {
         comments: "Comments",
       },
     })).toEqual(
-      homeVisit: {
+      {
         date: "Date",
         time: "Time",
         comments: "Comments",
