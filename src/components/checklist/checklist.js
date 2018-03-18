@@ -6,14 +6,32 @@ import { adminOrUser } from "../authenticate.js"
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import PropTypes from 'prop-types';
+import * as checklistActions from '../../actions/checklistActions'
 
 class checklist extends Component {
   componentWillMount () {
+    console.log(this.props.clearance);
     adminOrUser(this.props.clearance);
   }
 
+  constructor (props) {
+    super(props);
+    this.submit = this.submit.bind(this);
+  }
+
+  submit() {
+    var appVal = document.getElementById('application-form').value;
+    var discussVal = document.getElementById('discuss').value;
+    var homeVal = document.getElementById('home-form').value;
+    var finalVal = document.getElementById('final-form').value;
+
+    this.props.checklistActions.saveChecklist(appVal, discussVal, homeVal, finalVal);
+    alert("Checklist saved");
+  }
+      
+
   render() {
-    const appStatus = localStorage.getItem("applicationStatus");
+    const appStatus = this.props.statuses.applicationStatus;
     var appForm;
     if(appStatus === "Completed") {
       appForm = "Completed";
@@ -25,7 +43,7 @@ class checklist extends Component {
       appForm = "Not Complete";
     }
 
-    const discussStatus = localStorage.getItem("discussionStatus");
+    const discussStatus = this.props.statuses.discussStatus;
     var discussForm;
     if(discussStatus === "Completed") {
       discussForm = "Completed";
@@ -37,7 +55,7 @@ class checklist extends Component {
       discussForm = "Not Complete";
     }
 
-    const homeCheckStatus = localStorage.getItem("homeCheckStatus");
+    const homeCheckStatus = this.props.statuses.homeCheckStatus;
     var homeForm;
     if(homeCheckStatus === "Completed") {
       homeForm = "Completed";
@@ -49,7 +67,7 @@ class checklist extends Component {
       homeForm = "Not Complete";
     }
 
-    const finalStatus = localStorage.getItem("finalStatus");
+    const finalStatus = this.props.statuses.finalStatus;
     var finalForm;
     if(finalStatus === "Completed") {
       finalForm = "Completed";
@@ -61,7 +79,7 @@ class checklist extends Component {
       finalForm = "Not Complete";
     }
 
-    if (localStorage.getItem("clearance") === "admin") {
+    if (this.props.clearance === "admin") {
       return (
         <div>
           <Header/>
@@ -120,7 +138,7 @@ class checklist extends Component {
               </tbody>
             </table>
 
-            <input className="submit-checklist" id="submitBtn" type="submit" onClick={submit}/>
+            <input className="submit-checklist" id="submitBtn" type="submit" onClick={this.submit}/>
           </div>
         </div>
       );
@@ -175,34 +193,21 @@ class checklist extends Component {
   }
 }
 
-function submit() {
-  var appVal = document.getElementById('application-form').value;
-  var discussVal = document.getElementById('discuss').value;
-  var homeVal = document.getElementById('home-form').value;
-  var finalVal = document.getElementById('final-form').value;
-
-  localStorage.setItem("applicationStatus", appVal);
-  localStorage.setItem("discussionStatus", discussVal);
-  localStorage.setItem("homeCheckStatus", homeVal);
-  localStorage.setItem("finalStatus", finalVal);
-
-  alert("Checklist saved");
-}
-
-
-checklist.propTypes = {
-  clearance: PropTypes.string
-};
-
-
 function mapStateToProps(state) {
   return {
-    clearance: state.clearance
+    clearance: state.clearance,
+    statuses: {
+      applicationStatus: state.statuses.applicationStatus,
+      discussStatus: state.statuses.discussStatus,
+      homeCheckStatus: state.statuses.homeCheckStatus,
+      finalStatus: state.statuses.finalStatus,
+    },
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
+    checklistActions: bindActionCreators(checklistActions, dispatch)
   };
 }
 
