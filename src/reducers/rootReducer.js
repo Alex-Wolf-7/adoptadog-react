@@ -3,11 +3,13 @@ import chatLog from './chatReducer';
 import clearance from './loginReducer';
 //import statuses from './defaultStatusesReducer';
 import statuses from './checklistReducer';
+import homeVisit from './homeVisitReducer';
 
 const rootReducer = combineReducers({
   chatLog,
   clearance,
   statuses,
+  homeVisit,
 });
 
 export default rootReducer;
