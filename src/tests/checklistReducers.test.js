@@ -3,8 +3,13 @@ import * as types from '../actions/ActionTypes'
  
 describe('checklist reducer', () => {
   it('should return the initial state', () => {
-    expect(reducer([], {})).toEqual(
-      statuses: {
+    expect(reducer({
+      applicationStatus: "Not Complete",
+      discussStatus: "Not Complete",
+      homeCheckStatus: "Not Complete",
+      finalStatus: "Not Complete",
+    }, {})).toEqual(
+      {
         applicationStatus: "Not Complete",
         discussStatus: "Not Complete",
         homeCheckStatus: "Not Complete",
@@ -23,7 +28,7 @@ describe('checklist reducer', () => {
         finalStatus: "Not even my final status",
       },
     })).toEqual(
-      statuses: {
+      {
         applicationStatus: "GTG",
         discussStatus: "Nop",
         homeCheckStatus: "I wish",
