@@ -5,7 +5,6 @@ import Header from '../Header/Header.js';
 import { adminOnly } from "../authenticate.js"
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
-import * as viewAppActions from '../../actions/viewAppActions';
 
 class viewApplicationComp extends Component {
   constructor(props) {
@@ -24,7 +23,7 @@ class viewApplicationComp extends Component {
   loadOldInformation() {
     var dataOrder = ["name", "address", "housing", "email", "phone", "vetName",
     "vetEmail", "vetPhone", "dogName", "currPets", "dailySchedule"];
-    
+
     if (this.props.inputs.name !== "") {
       document.getElementById(dataOrder[0]).textContent = this.props.inputs.name;
       document.getElementById(dataOrder[1]).textContent = this.props.inputs.address;
@@ -131,7 +130,6 @@ class viewApplicationComp extends Component {
 
 viewApplicationComp.propTypes = {
   clearance: PropTypes.string,
-  viewAppActions: PropTypes.object
 };
 
 
