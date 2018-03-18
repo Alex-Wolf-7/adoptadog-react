@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './checklist.css';
+import checklistModule from './checklistModule.css';
 import Header from '../Header/Header.js'
 import { withRouter, Link } from 'react-router-dom'
 import { adminOrUser } from "../authenticate.js"
@@ -82,16 +83,16 @@ class checklist extends Component {
       return (
         <div>
           <Header/>
-          <div className="checklist-wrapper">
-            <h2 className="checklist-header">Adopter's To-Do:</h2>
-            <table className="checklist">
+          <div style={checklistModule.wrapper} className="checklist-wrapper">
+            <h2 style={checklistModule.header}>Adopter's To-Do:</h2>
+            <table style={checklistModule.checklist}>
               <tbody>
                 <tr className="list-item">
-                  <td className="list-item-left">
+                  <td style={checklistModule.listItemLeft}>
                     Fill out application form:
                   </td>
-                  <td className="list-item-right">
-                    <select defaultValue={appForm} className="checklist-select" id="application-form">
+                  <td style={checklistModule.listItemRight}>
+                    <select defaultValue={appForm} style={checklistModule.select} id="application-form">
                       <option value="Not Complete">Not Complete</option>
                       <option value="Submitted">Submitted</option>
                       <option value="Completed">Completed</option>
@@ -99,11 +100,11 @@ class checklist extends Component {
                   </td>
                 </tr>
                 <tr className="list-item">
-                  <td className="list-item-left">
+                  <td style={checklistModule.listItemLeft}>
                     Discuss Application:
                   </td>
-                  <td className="list-item-right">
-                    <select defaultValue={discussForm} className="checklist-select" id="discuss">
+                  <td style={checklistModule.listItemRight}>
+                    <select defaultValue={discussForm} style={checklistModule.select} id="discuss">
                       <option value="Not Complete">Not Complete</option>
                       <option value="Submitted">Submitted</option>
                       <option value="Completed">Completed</option>
@@ -111,11 +112,11 @@ class checklist extends Component {
                   </td>
                 </tr>
                 <tr className="list-item">
-                  <td className="list-item-left">
+                  <td style={checklistModule.listItemLeft}>
                     <Link to="admin-home-visit">Shedule Home Check:</Link>
                   </td>
-                  <td className="list-item-right">
-                    <select defaultValue={homeForm} className="checklist-select" id="home-form">
+                  <td style={checklistModule.listItemRight}>
+                    <select defaultValue={homeForm} style={checklistModule.select} id="home-form">
                       <option value="Not Complete">Not Complete</option>
                       <option value="Submitted">Submitted</option>
                       <option value="Completed">Completed</option>
@@ -123,11 +124,11 @@ class checklist extends Component {
                   </td>
                 </tr>
                 <tr className="list-item">
-                  <td className="list-item-left">
+                  <td style={checklistModule.listItemLeft}>
                     Go Get Your New Friend:
                   </td>
-                  <td className="list-item-right">
-                    <select defaultValue={finalForm} className="checklist-select" id="final-form">
+                  <td style={checklistModule.listItemRight}>
+                    <select defaultValue={finalForm} style={checklistModule.select} id="final-form">
                       <option value="Not Complete">Not Complete</option>
                       <option value="Submitted">Submitted</option>
                       <option value="Completed">Completed</option>
@@ -137,7 +138,7 @@ class checklist extends Component {
               </tbody>
             </table>
 
-            <input className="submit-checklist" id="submitBtn" type="submit" onClick={this.submit}/>
+            <input style={checklistModule.submit} id="submitBtn" type="submit" onClick={this.submit}/>
           </div>
         </div>
       );
@@ -147,39 +148,39 @@ class checklist extends Component {
       return (
         <div>
           <Header/>
-          <div className="checklist-wrapper">
-            <h2 className="checklist-header">Adopter's To-Do:</h2>
-            <table className="checklist">
+          <div style={checklistModule.wrapper} className="checklist-wrapper">
+            <h2 style={checklistModule.header}>Adopter's To-Do:</h2>
+            <table style={checklistModule.checklist}>
               <tbody>
                 <tr className="list-item">
-                  <td className="list-item-left">
+                  <td style={checklistModule.listItemLeft}>
                     <Link to="application">Fill out application form:</Link>
                   </td>
-                  <td className="list-item-right">
+                  <td style={checklistModule.listItemRight}>
                     <div id="application-form">{appForm}</div>
                   </td>
                 </tr>
                 <tr className="list-item">
-                  <td className="list-item-left">
+                  <td style={checklistModule.listItemLeft}>
                     <Link to="contact">Discuss Application:</Link>
                   </td>
-                  <td className="list-item-right">
+                  <td style={checklistModule.listItemRight}>
                     <div id="discuss">{discussForm}</div>
                   </td>
                 </tr>
                 <tr className="list-item">
-                  <td className="list-item-left">
+                  <td style={checklistModule.listItemLeft}>
                     <Link to="homeVisit">Shedule Home Check:</Link>
                   </td>
-                  <td className="list-item-right">
+                  <td style={checklistModule.listItemRight}>
                     <div id="home-form">{homeForm}</div>
                   </td>
                 </tr>
                 <tr className="list-item">
-                  <td className="list-item-left">
+                  <td style={checklistModule.listItemLeft}>
                     <Link to="all-done">Go Get Your New Friend:</Link>
                   </td>
-                  <td className="list-item-right">
+                  <td style={checklistModule.listItemRight}>
                     <div id="final-form">{finalForm}</div>
                   </td>
                 </tr>
