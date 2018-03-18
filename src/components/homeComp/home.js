@@ -66,10 +66,10 @@ class homeComp extends React.Component {
     updateSteps () {
       const todoTask = document.getElementById("todo-tasks");
 
-      if (this.props.statuses.appStatus === "Not Complete" || this.props.statuses.appStatus === "Submitted") {
+      if (this.props.statuses.applicationStatus === "Not Complete" || this.props.statuses.applicationStatus === "Submitted") {
         todoTask.innerHTML = "Step #1 - Fill Out The Adoption Form";
       }
-      else if (this.props.statuses.appStatus === "Completed" &&
+      else if (this.props.statuses.applicationStatus === "Completed" &&
                 (this.props.statuses.discussStatus === "Not Complete" ||
                 this.props.statuses.discussStatus === "Submitted")) {
                   todoTask.innerHTML = "Step #2 - Contact Dog Animal Rescue Adoption Coordinator";
@@ -88,10 +88,10 @@ class homeComp extends React.Component {
     }
 
     updateNextPage () {
-      if (this.props.statuses.appStatus === "Not Complete" || this.props.statuses.appStatus === "Submitted") {
+      if (this.props.statuses.applicationStatus === "Not Complete" || this.props.statuses.applicationStatus === "Submitted") {
         this.props.history.push('/application');
       }
-      else if (this.props.statuses.appStatus === "Completed" &&
+      else if (this.props.statuses.applicationStatus === "Completed" &&
                 (this.props.statuses.discussStatus === "Not Complete"
                 || this.props.statuses.discussStatus === "Submitted")) {
         this.props.history.push('/contact');
