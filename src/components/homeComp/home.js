@@ -125,6 +125,7 @@ class homeComp extends React.Component {
 
   function mapDispatchToProps(dispatch) {
     return {
+      chatActions: bindActionCreators(chatActions, dispatch),
     };
   }
 

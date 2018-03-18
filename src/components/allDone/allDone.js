@@ -5,7 +5,6 @@ import { withRouter } from 'react-router-dom'
 import allDoneDog from "./all-done-dog.jpg"
 import { userOnly } from "../authenticate.js"
 import {connect} from 'react-redux';
-import {bindActionCreators} from 'redux';
 import PropTypes from 'prop-types';
 
 class allDone extends Component {

@@ -2,10 +2,8 @@ import React, { Component } from 'react';
 import './kennel.css';
 import Header from '../Header/Header.js'
 import { withRouter } from 'react-router-dom'
-import dog from "./sampleDog1.jpg"
 import { adminOrUser } from "../authenticate.js"
 import {connect} from 'react-redux';
-import {bindActionCreators} from 'redux';
 import PropTypes from 'prop-types';
 
 class kennelPage extends Component {
@@ -18,7 +16,7 @@ class kennelPage extends Component {
   }
 
   componentWillMount () {
-  //  adminOrUser(this.props.clearance);
+    adminOrUser(this.props.clearance);
   }
 
   render() {

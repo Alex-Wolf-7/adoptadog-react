@@ -4,7 +4,6 @@ import { withRouter } from 'react-router-dom';
 import Header from '../Header/Header.js';
 import { adminOnly } from "../authenticate.js"
 import {connect} from 'react-redux';
-import {bindActionCreators} from 'redux';
 import PropTypes from 'prop-types';
 
 class viewApplicationComp extends Component {

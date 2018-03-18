@@ -5,7 +5,6 @@ import { withRouter, Link } from 'react-router-dom'
 import { adminOrUser } from "../authenticate.js"
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import PropTypes from 'prop-types';
 import * as checklistActions from '../../actions/checklistActions'
 
 class checklist extends Component {

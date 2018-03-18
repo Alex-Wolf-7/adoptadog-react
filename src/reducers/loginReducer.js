@@ -6,7 +6,8 @@ export default function setClearance(state = initialState.clearance, action) {
   switch (action.type) {
 
     case SET_CLEARANCE:
-      return action.clearance;
+      newState = action.clearance;
+      return newState;
 
     default:
       return state;
