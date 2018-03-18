@@ -24,6 +24,5 @@ export default {
     date: "",
     time: "",
     comments: "",
-    done: "notReady",
   }
 };
